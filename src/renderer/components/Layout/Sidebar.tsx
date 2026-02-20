@@ -19,7 +19,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import { cn } from '@/renderer/lib/utils';
-import logoImage from '../../assets/claude-owl-logo.png';
+import logoImage from '../../assets/open-owl-logo.png';
 import { isYearReviewActive } from '@/shared/utils/year-review.utils';
 
 interface SidebarProps {
@@ -96,11 +96,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle }) => {
       <div className="p-6 px-4 flex items-center gap-3 border-b border-white/10">
         <img
           src={logoImage}
-          alt="Claude Owl"
+          alt="OpenOwl"
           className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
         />
         {!isCollapsed && (
-          <span className="text-lg font-semibold break-words leading-snug">Claude Owl [Beta]</span>
+          <span className="text-lg font-semibold break-words leading-snug">OpenOwl</span>
         )}
       </div>
 

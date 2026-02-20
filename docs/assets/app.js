@@ -1,7 +1,7 @@
-// Claude Owl Website - Main JavaScript
+// Open Owl Website - Main JavaScript
 // Handles OS detection, version fetching, and download links
 
-const GITHUB_REPO = 'antonbelev/claude-owl';
+const GITHUB_REPO = 'antonbelev/open-owl';
 const GITHUB_API = `https://api.github.com/repos/${GITHUB_REPO}`;
 
 // Supported platforms
@@ -201,7 +201,7 @@ async function updateVersionInfo() {
     downloadArm64.onclick = () => trackDownload('macOS', 'arm64', version);
   } else if (downloadArm64) {
     // Fallback to constructed URL
-    downloadArm64.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Claude-Owl-${versionWithoutV}-arm64.dmg`;
+    downloadArm64.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Open-Owl-${versionWithoutV}-arm64.dmg`;
   }
 
   if (downloadX64 && x64Asset) {
@@ -209,7 +209,7 @@ async function updateVersionInfo() {
     downloadX64.onclick = () => trackDownload('macOS', 'x64', version);
   } else if (downloadX64) {
     // Fallback to constructed URL
-    downloadX64.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Claude-Owl-${versionWithoutV}-x64.dmg`;
+    downloadX64.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Open-Owl-${versionWithoutV}-x64.dmg`;
   }
 
   // Update Windows download link
@@ -219,7 +219,7 @@ async function updateVersionInfo() {
     downloadWindows.onclick = () => trackDownload('Windows', 'x64', version);
   } else if (downloadWindows) {
     // Fallback to constructed URL
-    downloadWindows.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Claude-Owl-Setup-${versionWithoutV}.exe`;
+    downloadWindows.href = `https://github.com/${GITHUB_REPO}/releases/download/${version}/Open-Owl-Setup-${versionWithoutV}.exe`;
   }
 
   // Calculate total downloads across all releases
@@ -415,7 +415,7 @@ function setupPlatformTabs() {
  * Initialize the page
  */
 async function init() {
-  console.log('🦉 Claude Owl website initialized');
+  console.log('🦉 Open Owl website initialized');
 
   // Detect OS and update UI
   const detectedOS = detectOS();

@@ -19,7 +19,7 @@ import type {
  * - Managed: Platform-specific managed settings
  *
  * IMPORTANT: For project-level settings, you MUST provide an explicit projectPath.
- * Do NOT rely on process.cwd() as Claude Owl is a standalone app.
+ * Do NOT rely on process.cwd() as Open Owl is a standalone app.
  */
 export class SettingsService {
   private userSettingsPath: string;

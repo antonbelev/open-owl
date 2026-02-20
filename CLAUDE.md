@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Claude Owl is an Electron-based desktop application that provides a visual UI for managing Claude Code configurations. It enables users to configure subagents, skills, plugins, hooks, slash commands, and MCP servers through an intuitive interface, replacing manual JSON/YAML editing.
+Open Owl is an Electron-based desktop application that provides a visual UI for managing Claude Code configurations. It enables users to configure subagents, skills, plugins, hooks, slash commands, and MCP servers through an intuitive interface, replacing manual JSON/YAML editing.
 
 **Tech Stack:** Electron + React 18 + TypeScript + Vite + Zustand + Tailwind CSS
 
@@ -53,7 +53,7 @@ npm run package:linux  # Build Linux AppImage
 
 ### Three-Process Architecture
 
-Claude Owl follows Electron's multi-process architecture:
+Open Owl follows Electron's multi-process architecture:
 
 1. **Main Process** (`src/main/`) - Node.js backend that manages:
    - File system operations (reading/writing Claude configs)
@@ -169,7 +169,7 @@ npm test -- -t "should detect Claude"      # Run tests matching pattern
 
 **IMPORTANT:** See `project-docs/adr/adr-001-settings-management-redesign.md` for complete architecture decision.
 
-Claude Owl interacts with these Claude Code files:
+Open Owl interacts with these Claude Code files:
 
 **User-Level Files:**
 - `~/.claude.json` - **READ ONLY** - CLI-managed, contains project tracking (used for project discovery)
@@ -573,23 +573,23 @@ When adding a new scoped feature:
 
 ## Critical Design Constraint
 
-**⚠️ IMPORTANT: Claude Owl is a standalone desktop application, NOT a project-aware tool**
+**⚠️ IMPORTANT: Open Owl is a standalone desktop application, NOT a project-aware tool**
 
-- Users launch Claude Owl from the Applications folder (or via DMG installer)
-- Claude Owl does NOT have access to the user's current working directory or project structure
-- Do NOT build features that assume Claude Owl knows about the user's project setup
+- Users launch Open Owl from the Applications folder (or via DMG installer)
+- Open Owl does NOT have access to the user's current working directory or project structure
+- Do NOT build features that assume Open Owl knows about the user's project setup
 - Do NOT use `process.cwd()` or detect project files/frameworks during runtime
 - **Development vs Production Reality:**
-  - ✗ During `npm run dev:electron`: We run from claude-owl project directory (misleading!)
+  - ✗ During `npm run dev:electron`: We run from open-owl project directory (misleading!)
   - ✓ When installed: Users launch from Applications, no project context available
 
-### What Claude Owl CAN Know
+### What Open Owl CAN Know
 - Global Claude Code settings (`~/.claude/settings.json`)
 - Project-level settings (if user opens a project's `.claude/settings.json`)
 - User's home directory
 - **Project list** (discovered from `~/.claude.json` - see ADR-001)
 
-### What Claude Owl CANNOT Know
+### What Open Owl CANNOT Know
 - Which project the user is currently working on
 - What tools/frameworks are installed in user's projects
 - Project structure or dependencies
@@ -653,7 +653,7 @@ const request = {
 - ✅ Compact, optimized UI (4x more rules visible without scrolling)
 - ✅ 2000+ lines of production-ready code
 - ✅ Full TypeScript strict mode compliance
-- ⚠️ Removed auto-detection feature (violated design constraint - Claude Owl is standalone app)
+- ⚠️ Removed auto-detection feature (violated design constraint - Open Owl is standalone app)
 
 **Phase 2** - Next Focus
 - Core services (FileSystemService, ConfigurationService, ValidationService)

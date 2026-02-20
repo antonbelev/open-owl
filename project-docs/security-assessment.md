@@ -1,4 +1,4 @@
-# Claude Owl Security & Risk Assessment
+# Open Owl Security & Risk Assessment
 
 **Last Updated:** November 22, 2025
 **Assessed By:** Claude Code (AI Assistant)
@@ -9,11 +9,11 @@
 
 ## 🤖 About This Assessment
 
-This security assessment was created by **Claude Code**, an AI assistant, to help users evaluate the safety and trustworthiness of Claude Owl. This project has been **built extensively with Claude Code** and, like all software, may contain bugs or security issues.
+This security assessment was created by **Claude Code**, an AI assistant, to help users evaluate the safety and trustworthiness of Open Owl. This project has been **built extensively with Claude Code** and, like all software, may contain bugs or security issues.
 
-**Found a security issue or bug?** Please [report it on our GitHub Issues page](https://github.com/antonbelev/claude-owl/issues).
+**Found a security issue or bug?** Please [report it on our GitHub Issues page](https://github.com/antonbelev/open-owl/issues).
 
-**This is open source software.** You can review the complete source code, build it yourself, and verify the security claims made in this document at [github.com/antonbelev/claude-owl](https://github.com/antonbelev/claude-owl).
+**This is open source software.** You can review the complete source code, build it yourself, and verify the security claims made in this document at [github.com/antonbelev/open-owl](https://github.com/antonbelev/open-owl).
 
 ---
 
@@ -21,9 +21,9 @@ This security assessment was created by **Claude Code**, an AI assistant, to hel
 
 **Overall Safety Rating: VERY GOOD (8.5/10)** with all critical issues resolved.
 
-**Is Claude Owl safe to use?** Yes. Claude Owl follows modern security practices and is designed to interact safely with your Claude Code configurations. All critical Electron configuration issues have been addressed and security vulnerabilities have been patched.
+**Is Open Owl safe to use?** Yes. Open Owl follows modern security practices and is designed to interact safely with your Claude Code configurations. All critical Electron configuration issues have been addressed and security vulnerabilities have been patched.
 
-**Will it destroy my files or leak my secrets?** No. Claude Owl:
+**Will it destroy my files or leak my secrets?** No. Open Owl:
 - ✅ Does NOT log passwords, API keys, tokens, or secrets
 - ✅ Only reads/writes to designated Claude Code config directories (`~/.claude/` and project `.claude/` folders)
 - ✅ Implements path validation to prevent directory traversal attacks
@@ -36,7 +36,7 @@ This security assessment was created by **Claude Code**, an AI assistant, to hel
 
 ### Code Quality & Safety Practices
 
-Claude Owl demonstrates **excellent development practices**:
+Open Owl demonstrates **excellent development practices**:
 
 1. **TypeScript Strict Mode** - 100% type-safe code with the strictest compiler settings enabled
 2. **Comprehensive Linting** - ESLint enforced across all code with modern recommended rules
@@ -72,7 +72,7 @@ The application follows **Electron security best practices** in most areas:
 
 ### Command & Hook Security
 
-Claude Owl includes **SecurityScanner** and **HooksValidator** that analyze imported commands for:
+Open Owl includes **SecurityScanner** and **HooksValidator** that analyze imported commands for:
 
 - Dangerous bash patterns (`rm -rf`, `eval`, `curl | bash`, fork bombs)
 - Shell injection risks (unquoted variables, command substitution)
@@ -165,12 +165,12 @@ This provides protection when importing third-party commands or hooks.
 
 If you're concerned about safety, here's what you can do:
 
-1. **Review the source code** - It's open source! Check [github.com/antonbelev/claude-owl](https://github.com/antonbelev/claude-owl)
+1. **Review the source code** - It's open source! Check [github.com/antonbelev/open-owl](https://github.com/antonbelev/open-owl)
 
 2. **Build from source** - Don't trust binaries? Build it yourself:
    ```bash
-   git clone https://github.com/antonbelev/claude-owl.git
-   cd claude-owl
+   git clone https://github.com/antonbelev/open-owl.git
+   cd open-owl
    npm install
    npm run build
    npm run package
@@ -178,11 +178,11 @@ If you're concerned about safety, here's what you can do:
 
 3. **Run in a VM or container** - Extra paranoid? Run it in an isolated environment
 
-4. **Monitor file system access** - Use tools like `fs_usage` (macOS) or `auditd` (Linux) to monitor what Claude Owl accesses
+4. **Monitor file system access** - Use tools like `fs_usage` (macOS) or `auditd` (Linux) to monitor what Open Owl accesses
 
-5. **Check logs** - Claude Owl logs extensively. Review the logs in DevTools (View → Developer → Toggle Developer Tools)
+5. **Check logs** - Open Owl logs extensively. Review the logs in DevTools (View → Developer → Toggle Developer Tools)
 
-6. **Report issues** - Found something suspicious? [Open a GitHub issue](https://github.com/antonbelev/claude-owl/issues)
+6. **Report issues** - Found something suspicious? [Open a GitHub issue](https://github.com/antonbelev/open-owl/issues)
 
 ### For Developers
 
@@ -209,9 +209,9 @@ If you want to improve security:
 
 ## 📊 Detailed Risk Analysis
 
-### What Data Does Claude Owl Access?
+### What Data Does Open Owl Access?
 
-Claude Owl interacts with the following files and data:
+Open Owl interacts with the following files and data:
 
 | Data Type | Location | Access Level | Purpose |
 |-----------|----------|--------------|---------|
@@ -223,7 +223,7 @@ Claude Owl interacts with the following files and data:
 | **Hooks** | `{PROJECT}/.claude/hooks/` | Read/Write (when project selected) | Manage lifecycle hooks |
 | **MCP Servers** | `{PROJECT}/.mcp.json` | Read-only | View MCP server configuration |
 
-**What Claude Owl does NOT access:**
+**What Open Owl does NOT access:**
 - ❌ Your source code files (unless in `.claude/` directories)
 - ❌ Your git repositories (except reading `.claude/` folders)
 - ❌ System files outside your home directory
@@ -231,9 +231,9 @@ Claude Owl interacts with the following files and data:
 - ❌ Your environment variables
 - ❌ Your SSH keys or credentials
 
-### What Commands Does Claude Owl Execute?
+### What Commands Does Open Owl Execute?
 
-Claude Owl executes the following external commands:
+Open Owl executes the following external commands:
 
 1. **`which claude`** - Checks if Claude CLI is installed
 2. **`claude --version`** - Gets installed Claude version
@@ -242,7 +242,7 @@ Claude Owl executes the following external commands:
 5. **`claude subagents add ...`** - Adds subagents (when requested)
 6. **`claude commands add ...`** - Adds slash commands (when requested)
 
-**What Claude Owl does NOT execute:**
+**What Open Owl does NOT execute:**
 - ❌ Shell commands from user input without validation
 - ❌ Downloaded scripts from the internet
 - ❌ Arbitrary code execution
@@ -250,7 +250,7 @@ Claude Owl executes the following external commands:
 
 ### Network Activity
 
-Claude Owl makes network requests to:
+Open Owl makes network requests to:
 
 1. **GitHub API** (`api.github.com`)
    - Purpose: Fetch marketplace manifests and plugin information
@@ -258,7 +258,7 @@ Claude Owl makes network requests to:
    - Data sent: Repository owner, name, branch, path
    - Data received: JSON manifests, file contents
 
-**What Claude Owl does NOT do:**
+**What Open Owl does NOT do:**
 - ❌ Send your code or files to external servers
 - ❌ Send telemetry or analytics data
 - ❌ Phone home with usage statistics
@@ -294,7 +294,7 @@ This assessment was conducted by analyzing:
 
 ## 🎓 Good Practices Followed
 
-Claude Owl demonstrates excellent software engineering practices:
+Open Owl demonstrates excellent software engineering practices:
 
 ### 1. Type Safety
 - ✅ TypeScript strict mode enabled
@@ -357,7 +357,7 @@ Claude Owl demonstrates excellent software engineering practices:
 
 ## 🚦 Recommendation
 
-### Is Claude Owl Safe to Use?
+### Is Open Owl Safe to Use?
 
 **For Evaluation & Testing: YES** ✅
 - Safe for exploring and evaluating Claude Code configurations
@@ -391,7 +391,7 @@ Claude Owl demonstrates excellent software engineering practices:
 If you discover a security vulnerability:
 
 1. **For critical issues:** Email the maintainer directly (see GitHub profile)
-2. **For non-critical issues:** [Open a GitHub issue](https://github.com/antonbelev/claude-owl/issues)
+2. **For non-critical issues:** [Open a GitHub issue](https://github.com/antonbelev/open-owl/issues)
 3. **Include:** Steps to reproduce, impact assessment, suggested fix
 
 ### Ask Questions
@@ -404,7 +404,7 @@ If you discover a security vulnerability:
 
 ## 📝 Conclusion
 
-Claude Owl is a **well-engineered desktop application** built with modern security practices and comprehensive tooling. It demonstrates excellent code quality, type safety, and development practices.
+Open Owl is a **well-engineered desktop application** built with modern security practices and comprehensive tooling. It demonstrates excellent code quality, type safety, and development practices.
 
 **All critical security issues have been resolved as of November 22, 2025:**
 - ✅ Sandbox enabled for renderer process isolation
@@ -412,7 +412,7 @@ Claude Owl is a **well-engineered desktop application** built with modern securi
 - ✅ URL validation prevents protocol attacks
 - ✅ CVE-2025-64756 vulnerability patched
 
-**For users:** Claude Owl is safe for production use. It will not destroy your files, leak your secrets, or send your data to external servers. All critical security issues have been addressed.
+**For users:** Open Owl is safe for production use. It will not destroy your files, leak your secrets, or send your data to external servers. All critical security issues have been addressed.
 
 **For developers:** The codebase follows best practices and is production-ready. Remaining improvements are minor enhancements (command timeouts, YAML parser) rather than security-critical fixes.
 

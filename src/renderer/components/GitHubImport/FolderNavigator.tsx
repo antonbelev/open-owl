@@ -225,9 +225,7 @@ export function FolderNavigator({ initialContents, onSelectionChange }: FolderNa
           onClick={handleSelectAllInFolder}
           disabled={isNavigating}
         >
-          {selectedInCurrentFolder === mdFiles.length
-            ? '☐ Deselect All'
-            : '☑ Select All in Folder'}
+          {selectedInCurrentFolder === mdFiles.length ? '☐ Deselect All' : '☑ Select All in Folder'}
         </button>
       )}
 

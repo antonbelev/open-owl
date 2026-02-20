@@ -162,8 +162,7 @@ export interface ImportGitHubCommandsRequest {
   namespace?: string;
 }
 
-export interface ImportGitHubCommandsResponse
-  extends IPCResponse<{
-    imported: string[];
-    failed: Array<{ name: string; reason: string }>;
-  }> {}
+export interface ImportGitHubCommandsResponse extends IPCResponse<{
+  imported: string[];
+  failed: Array<{ name: string; reason: string }>;
+}> {}

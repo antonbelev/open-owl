@@ -22,11 +22,10 @@ export interface GetSettingsPathRequest {
   projectPath?: string;
 }
 
-export interface GetSettingsPathResponse
-  extends IPCResponse<{
-    path: string;
-    exists: boolean;
-  }> {}
+export interface GetSettingsPathResponse extends IPCResponse<{
+  path: string;
+  exists: boolean;
+}> {}
 
 export interface OpenSettingsFileRequest {
   location: 'user' | 'project';
@@ -68,11 +67,10 @@ export interface CreateHookRequest {
 /**
  * Create hook response
  */
-export interface CreateHookResponse
-  extends IPCResponse<{
-    /** Generated hook identifier (event:configIndex:hookIndex) */
-    hookId: string;
-  }> {}
+export interface CreateHookResponse extends IPCResponse<{
+  /** Generated hook identifier (event:configIndex:hookIndex) */
+  hookId: string;
+}> {}
 
 /**
  * Update hook request

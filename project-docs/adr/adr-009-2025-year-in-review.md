@@ -9,12 +9,12 @@
 
 ## Context and Problem Statement
 
-As 2025 comes to a close, we have an opportunity to create a memorable, engaging experience for Claude Owl users - a **Year in Review** feature inspired by Spotify Wrapped, GitHub Skyline, and similar end-of-year celebrations.
+As 2025 comes to a close, we have an opportunity to create a memorable, engaging experience for Open Owl users - a **Year in Review** feature inspired by Spotify Wrapped, GitHub Skyline, and similar end-of-year celebrations.
 
 **Goals:**
 1. **Delight Users**: Create a fun, visually stunning recap of their 2025 Claude Code usage
 2. **Drive Engagement**: Give users a reason to explore the Metrics feature
-3. **Viral Growth**: Enable easy sharing to help others discover Claude Owl
+3. **Viral Growth**: Enable easy sharing to help others discover Open Owl
 4. **Seasonal Joy**: Add festive touches (snowflakes, winter theme) to celebrate the holidays
 
 **Constraints:**
@@ -33,7 +33,7 @@ As 2025 comes to a close, we have an opportunity to create a memorable, engaging
 │                         USER JOURNEY                                │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  1. User opens Claude Owl (first time after Dec 15)                │
+│  1. User opens Open Owl (first time after Dec 15)                │
 │     ↓                                                               │
 │  2. 🎄 Notification popup appears:                                  │
 │     "Your 2025 Year in Review is ready! See your Claude journey"   │
@@ -655,7 +655,7 @@ const getModelPersonality = (modelName: string) => {
 │                                                                │
 │                     Your Top Projects                          │
 │                                                                │
-│    🥇 claude-owl                    312 sessions • $45.20      │
+│    🥇 open-owl                    312 sessions • $45.20      │
 │       "Your passion project!"                                  │
 │                                                                │
 │    🥈 acme-api                      187 sessions • $28.90      │
@@ -871,7 +871,7 @@ const computeLongestStreak = (daily: DailyStats[]): number => {
 
 ### 4. Social Sharing Feature
 
-The final card enables users to share their Year in Review, helping spread awareness of Claude Owl.
+The final card enables users to share their Year in Review, helping spread awareness of Open Owl.
 
 #### 4.1 Share Card Design
 
@@ -890,8 +890,8 @@ The final card enables users to share their Year in Review, helping spread aware
 │     │     🏆 347 coding sessions                      │      │
 │     │     🔥 23-day hot streak                        │      │
 │     │                                                  │      │
-│     │     Powered by Claude Owl                       │      │
-│     │     github.com/antonbelev/claude-owl            │      │
+│     │     Powered by Open Owl                       │      │
+│     │     github.com/antonbelev/open-owl            │      │
 │     │                                                  │      │
 │     └──────────────────────────────────────────────────┘      │
 │                     ↑ Preview Card ↑                          │
@@ -1021,14 +1021,14 @@ export const generateShareImage = async (stats: ShareStats): Promise<Blob> => {
           gap: 8px;
         ">
           <span style="font-size: 24px;">🦉</span>
-          <span style="font-size: 18px; font-weight: bold;">Claude Owl</span>
+          <span style="font-size: 18px; font-weight: bold;">Open Owl</span>
         </div>
         <div style="
           font-size: 12px;
           opacity: 0.5;
           margin-top: 5px;
         ">
-          github.com/antonbelev/claude-owl
+          github.com/antonbelev/open-owl
         </div>
       </div>
     </div>
@@ -1071,7 +1071,7 @@ export const ShareActions: React.FC<{ stats: ShareStats }> = ({ stats }) => {
 
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'claude-owl-2025-year-in-review.png';
+    link.download = 'open-owl-2025-year-in-review.png';
     link.click();
 
     URL.revokeObjectURL(url);
@@ -1088,7 +1088,7 @@ export const ShareActions: React.FC<{ stats: ShareStats }> = ({ stats }) => {
 🏆 ${stats.totalSessions} coding sessions
 🔥 ${stats.longestStreak}-day hot streak
 
-Check out Claude Owl: https://github.com/antonbelev/claude-owl
+Check out Open Owl: https://github.com/antonbelev/open-owl
 
 #ClaudeCode #YearInReview #AI #Coding`;
 
@@ -1107,7 +1107,7 @@ Check out Claude Owl: https://github.com/antonbelev/claude-owl
 🏆 ${stats.totalSessions} sessions
 🔥 ${stats.longestStreak}-day streak
 
-Check out @ClaudeOwl! github.com/antonbelev/claude-owl
+Check out @OpenOwl! github.com/antonbelev/open-owl
 
 #ClaudeCode #YearInReview`
     );
@@ -1657,7 +1657,7 @@ test('Year in Review flow', async ({ page }) => {
 
 ## Conclusion
 
-The 2025 Year in Review feature will delight Claude Owl users with a visually stunning, shareable summary of their AI coding journey. By combining the existing metrics infrastructure with engaging UX and social sharing, we can create a memorable experience that drives both engagement and organic growth.
+The 2025 Year in Review feature will delight Open Owl users with a visually stunning, shareable summary of their AI coding journey. By combining the existing metrics infrastructure with engaging UX and social sharing, we can create a memorable experience that drives both engagement and organic growth.
 
 **Key Differentiators:**
 - Beautiful, festive design with snowflakes overlay

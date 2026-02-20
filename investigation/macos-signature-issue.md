@@ -5,7 +5,7 @@
 Apps built locally via `npm run package:mac` install and run successfully on macOS, but the same version downloaded from GitHub Releases shows the error:
 
 ```
-"Claude Owl" is damaged and can't be opened. You should eject the disk image.
+"Open Owl" is damaged and can't be opened. You should eject the disk image.
 ```
 
 When inspecting the downloaded app with `spctl -a -v`, we get:
@@ -155,12 +155,12 @@ After downloading from GitHub Releases, users **must** remove the quarantine fla
 
 ```bash
 # Step 1: Download DMG from GitHub Releases
-# Step 2: Mount DMG and drag Claude Owl to Applications folder
+# Step 2: Mount DMG and drag Open Owl to Applications folder
 # Step 3: Run this command in Terminal:
-xattr -r -d com.apple.quarantine "/Applications/Claude Owl.app"
+xattr -r -d com.apple.quarantine "/Applications/Open Owl.app"
 
-# Step 4: Launch Claude Owl normally
-open "/Applications/Claude Owl.app"
+# Step 4: Launch Open Owl normally
+open "/Applications/Open Owl.app"
 ```
 
 **Why this works**: macOS applies the `com.apple.quarantine` extended attribute to all apps downloaded from the internet. This attribute triggers Gatekeeper validation, which fails for unsigned apps with adhoc signatures. Removing the quarantine flag bypasses Gatekeeper entirely, allowing the app to launch.
@@ -168,11 +168,11 @@ open "/Applications/Claude Owl.app"
 **Verification**:
 ```bash
 # Before fix:
-xattr -l "/Applications/Claude Owl.app"
+xattr -l "/Applications/Open Owl.app"
 # Shows: com.apple.quarantine: 0381;691c5866;Chrome;...
 
 # After fix:
-xattr -l "/Applications/Claude Owl.app"
+xattr -l "/Applications/Open Owl.app"
 # Shows: com.apple.provenance: (no quarantine flag)
 ```
 
@@ -208,17 +208,17 @@ To verify a fix works:
 ```bash
 # 1. Build locally (baseline)
 npm run package:mac
-spctl -a -v "release/0.1.5/mac-arm64/Claude Owl.app"
+spctl -a -v "release/0.1.5/mac-arm64/Open Owl.app"
 # Expected: rejection but app should open with right-click → Open
 
 # 2. Download from GitHub Release
-# Download Claude-Owl-0.1.5-arm64.dmg
-hdiutil mount ~/Downloads/Claude-Owl-0.1.5-arm64.dmg
-spctl -a -v "/Volumes/Claude Owl 0.1.5-arm64/Claude Owl.app"
+# Download Open-Owl-0.1.5-arm64.dmg
+hdiutil mount ~/Downloads/Open-Owl-0.1.5-arm64.dmg
+spctl -a -v "/Volumes/Open Owl 0.1.5-arm64/Open Owl.app"
 # Should match local build behavior
 
 # 3. Check signature
-codesign -dvvv "/Volumes/Claude Owl 0.1.5-arm64/Claude Owl.app"
+codesign -dvvv "/Volumes/Open Owl 0.1.5-arm64/Open Owl.app"
 # Local: Should show no signature or valid adhoc
 # GitHub: Should match local
 ```

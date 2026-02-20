@@ -1,9 +1,9 @@
 {
-  "name": "claude-owl",
-  "version": "0.7.0",
+  "name": "open-owl",
+  "version": "0.8.0",
   "description": "Open-source UI for managing Claude Code configurations, settings, and features",
   "main": "dist/main/index.js",
-  "author": "Claude Owl Contributors",
+  "author": "Open Owl Contributors",
   "license": "MIT",
   "private": true,
   "keywords": [
@@ -16,12 +16,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/claude-owl.git"
+    "url": "https://github.com/antonbelev/open-owl.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/claude-owl/issues"
+    "url": "https://github.com/antonbelev/open-owl/issues"
   },
-  "homepage": "https://github.com/yourusername/claude-owl#readme",
+  "homepage": "https://github.com/antonbelev/open-owl#readme",
   "scripts": {
     "dev": "vite",
     "dev:electron": "electron-vite dev",

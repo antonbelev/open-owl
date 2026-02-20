@@ -1,6 +1,6 @@
 {
-  "appId": "com.claudeowl.app",
-  "productName": "Claude Owl",
+  "appId": "com.openowl.app",
+  "productName": "Open Owl",
   "directories": {
     "output": "release/${version}"
   },
@@ -22,7 +22,7 @@
   "publish": {
     "provider": "github",
     "owner": "antonbelev",
-    "repo": "claude-owl",
+    "repo": "open-owl",
     "releaseType": "draft"
   },
   "mac": {
@@ -62,7 +62,7 @@
       }
     ],
     "icon": "assets/icon.ico",
-    "publisherName": "Claude Owl Contributors",
+    "publisherName": "Open Owl Contributors",
     "signAndEditExecutable": false,
     "signDlls": false,
     "verifyUpdateCodeSignature": false
@@ -73,7 +73,7 @@
     "allowToChangeInstallationDirectory": true,
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
-    "shortcutName": "Claude Owl",
+    "shortcutName": "Open Owl",
     "installerIcon": "assets/icon.ico",
     "uninstallerIcon": "assets/icon.ico"
   },
@@ -90,8 +90,8 @@
     ],
     "category": "Development",
     "icon": "assets/icon.png",
-    "maintainer": "Claude Owl Contributors",
-    "vendor": "Claude Owl",
+    "maintainer": "Open Owl Contributors",
+    "vendor": "Open Owl",
     "synopsis": "Visual UI for managing Claude Code configurations",
     "description": "Open-source desktop application for managing Claude Code settings, subagents, MCP servers, and more through an intuitive interface."
   }

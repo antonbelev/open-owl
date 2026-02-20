@@ -23,14 +23,14 @@ export class PathService {
    * @param projectPath - Explicit project path (required)
    * @throws Error if projectPath is not provided
    *
-   * IMPORTANT: Claude Owl is a standalone desktop app without project context.
+   * IMPORTANT: Open Owl is a standalone desktop app without project context.
    * We MUST NOT use process.cwd() as it returns the app's installation directory,
    * not the user's project. See ADR-007 for details.
    */
   getProjectClaudeDir(projectPath: string): string {
     if (!projectPath) {
       throw new Error(
-        'projectPath is required. Claude Owl is a standalone app without project context awareness. ' +
+        'projectPath is required. Open Owl is a standalone app without project context awareness. ' +
           'You must provide an explicit project path instead of relying on process.cwd().'
       );
     }
@@ -164,22 +164,22 @@ export class PathService {
     const osType = platform();
 
     if (osType === 'win32') {
-      // Windows: %APPDATA%\claude-owl\logs
+      // Windows: %APPDATA%\open-owl\logs
       const appData = process.env.APPDATA;
       if (!appData) {
         console.warn('[PathService] APPDATA environment variable not found, using fallback');
       }
       const basePath = appData || path.join(homedir(), 'AppData', 'Roaming');
-      const logsPath = path.join(basePath, 'claude-owl', 'logs');
+      const logsPath = path.join(basePath, 'open-owl', 'logs');
 
       console.log('[PathService] Windows debug logs path:', logsPath);
       return logsPath;
     } else if (osType === 'darwin') {
-      // macOS: ~/Library/Caches/claude-owl/logs
-      return path.join(homedir(), 'Library', 'Caches', 'claude-owl', 'logs');
+      // macOS: ~/Library/Caches/open-owl/logs
+      return path.join(homedir(), 'Library', 'Caches', 'open-owl', 'logs');
     } else {
-      // Linux: ~/.cache/claude-owl/logs
-      return path.join(homedir(), '.cache', 'claude-owl', 'logs');
+      // Linux: ~/.cache/open-owl/logs
+      return path.join(homedir(), '.cache', 'open-owl', 'logs');
     }
   }
 

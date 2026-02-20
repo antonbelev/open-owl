@@ -33,7 +33,7 @@ export type RemoteMCPHealthStatus = 'healthy' | 'degraded' | 'offline' | 'unknow
 /**
  * Source of server information
  */
-export type RemoteMCPSource = 'mcpservers.org' | 'claude-owl' | 'community';
+export type RemoteMCPSource = 'mcpservers.org' | 'open-owl' | 'community';
 
 /**
  * Authentication configuration for remote servers

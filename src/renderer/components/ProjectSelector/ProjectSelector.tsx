@@ -48,8 +48,8 @@ export const ProjectSelector: React.FC = () => {
         <CardContent>
           <div className="space-y-3">
             <p className="text-sm text-amber-900">
-              Claude Owl discovers projects from .claude.json, which is automatically created by
-              Claude Code CLI.
+              OpenOwl discovers projects from .claude.json, which is automatically created by Claude
+              Code CLI.
             </p>
             <div className="bg-white p-3 rounded border border-amber-200">
               <p className="text-xs font-mono text-gray-700 mb-2">To initialize Claude Code:</p>

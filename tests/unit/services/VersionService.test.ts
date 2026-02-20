@@ -19,7 +19,7 @@ describe('VersionService', () => {
       // Mock successful GitHub API response
       mockGitHubApiResponse({
         tag_name: 'v0.6.0',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0',
         body: 'Release notes for v0.6.0',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,
@@ -32,7 +32,7 @@ describe('VersionService', () => {
         currentVersion: '0.5.1',
         latestVersion: '0.6.0',
         isOutdated: true,
-        releaseUrl: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0',
+        releaseUrl: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0',
         releaseNotes: 'Release notes for v0.6.0',
         publishedAt: '2024-01-15T10:00:00Z',
       });
@@ -41,7 +41,7 @@ describe('VersionService', () => {
     it('should detect when current version is up to date', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.5.1',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.5.1',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.5.1',
         body: 'Release notes',
         published_at: '2024-01-10T10:00:00Z',
         prerelease: false,
@@ -58,7 +58,7 @@ describe('VersionService', () => {
     it('should handle version strings with "v" prefix', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.6.0',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0',
         body: 'Release notes',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,
@@ -75,7 +75,7 @@ describe('VersionService', () => {
     it('should correctly compare patch versions', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.5.2',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.5.2',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.5.2',
         body: 'Patch release',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,
@@ -90,7 +90,7 @@ describe('VersionService', () => {
     it('should correctly compare minor versions', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.6.0',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0',
         body: 'Minor release',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,
@@ -105,7 +105,7 @@ describe('VersionService', () => {
     it('should correctly compare major versions', async () => {
       mockGitHubApiResponse({
         tag_name: 'v1.0.0',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v1.0.0',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v1.0.0',
         body: 'Major release',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,
@@ -120,7 +120,7 @@ describe('VersionService', () => {
     it('should reject pre-release versions', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.6.0-beta',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0-beta',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0-beta',
         body: 'Beta release',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: true,
@@ -135,7 +135,7 @@ describe('VersionService', () => {
     it('should reject draft releases', async () => {
       mockGitHubApiResponse({
         tag_name: 'v0.6.0',
-        html_url: 'https://github.com/antonbelev/claude-owl/releases/tag/v0.6.0',
+        html_url: 'https://github.com/antonbelev/open-owl/releases/tag/v0.6.0',
         body: 'Draft release',
         published_at: '2024-01-15T10:00:00Z',
         prerelease: false,

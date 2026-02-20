@@ -1,5 +1,5 @@
 /**
- * Shared utility functions for Claude Owl
+ * Shared utility functions for Open Owl
  */
 
 export * from './path.utils';

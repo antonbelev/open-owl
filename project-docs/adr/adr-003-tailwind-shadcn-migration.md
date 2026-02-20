@@ -3,13 +3,13 @@
 **Status:** Proposed
 **Date:** 2025-11-15
 **Decision Makers:** Development Team
-**Technical Story:** Establish a modern, consistent, and maintainable UI system for Claude Owl
+**Technical Story:** Establish a modern, consistent, and maintainable UI system for Open Owl
 
 ---
 
 ## Executive Summary
 
-Migrate Claude Owl from traditional CSS files with inconsistent styling to a modern UI stack using **Tailwind CSS** for utility-first styling and **Shadcn/UI** for accessible, customizable React components. This migration will establish a cohesive design system, improve developer experience, and create a foundation for rapid, consistent UI development.
+Migrate Open Owl from traditional CSS files with inconsistent styling to a modern UI stack using **Tailwind CSS** for utility-first styling and **Shadcn/UI** for accessible, customizable React components. This migration will establish a cohesive design system, improve developer experience, and create a foundation for rapid, consistent UI development.
 
 **Current State:** 28 separate CSS files, broken CSS variables, inconsistent colors, emoji icons, no component library
 **Target State:** Utility-first Tailwind classes, shadcn/ui component library, lucide-react icons, standardized design system
@@ -73,7 +73,7 @@ Migrate Claude Owl from traditional CSS files with inconsistent styling to a mod
 
 ## Decision
 
-**We will migrate Claude Owl to:**
+**We will migrate Open Owl to:**
 
 1. **Tailwind CSS v3+** for utility-first styling
 2. **Shadcn/UI** for accessible React component primitives
@@ -102,7 +102,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Custom color palette for Claude Owl
+        // Custom color palette for Open Owl
         primary: { ... },
         secondary: { ... },
         accent: { ... }
@@ -618,8 +618,8 @@ npx shadcn-ui@latest add skeleton
 
 **Customize components:**
 - Review each component in `components/ui/`
-- Adjust color variants to match Claude Owl brand
-- Add any Claude Owl-specific variants
+- Adjust color variants to match Open Owl brand
+- Add any Open Owl-specific variants
 
 **Create app-specific common components:**
 ```tsx
@@ -631,7 +631,7 @@ npx shadcn-ui@latest add skeleton
 
 **Deliverables:**
 - ✅ 18+ shadcn/ui components installed
-- ✅ All components customized with Claude Owl theme
+- ✅ All components customized with Open Owl theme
 - ✅ 4 new common components created
 - ✅ Storybook/demo page showing all components (optional)
 
@@ -1121,7 +1121,7 @@ import { ChevronDown, ChevronRight, Menu, MoreVertical } from 'lucide-react';
 - [ ] Install core dependencies: `class-variance-authority`, `clsx`, `tailwind-merge`, `lucide-react`
 - [ ] Create `lib/utils.ts` with `cn()` helper
 - [ ] Install Priority 1 components (button, input, dialog, select, card, badge, alert, label, separator)
-- [ ] Customize component variants to match Claude Owl brand
+- [ ] Customize component variants to match Open Owl brand
 - [ ] Create demo page showcasing all components (optional but recommended)
 
 ### Week 2: Layout & Common Components
@@ -1536,7 +1536,7 @@ export const SettingsForm = ({ onSubmit }) => {
 
 ## Conclusion
 
-Migrating Claude Owl to Tailwind CSS + Shadcn/UI represents a significant architectural improvement that will:
+Migrating Open Owl to Tailwind CSS + Shadcn/UI represents a significant architectural improvement that will:
 
 1. **Eliminate 28 CSS files** and consolidate all styling into component-level utilities
 2. **Establish a cohesive design system** with standardized colors, spacing, and typography
@@ -1545,7 +1545,7 @@ Migrating Claude Owl to Tailwind CSS + Shadcn/UI represents a significant archit
 5. **Enhance accessibility** through Radix UI primitives
 6. **Future-proof the UI stack** with active, well-supported technologies
 
-The migration is achievable in **4-6 weeks** with systematic execution, comprehensive testing, and attention to visual consistency. The long-term benefits far outweigh the initial effort, positioning Claude Owl for rapid, high-quality UI development.
+The migration is achievable in **4-6 weeks** with systematic execution, comprehensive testing, and attention to visual consistency. The long-term benefits far outweigh the initial effort, positioning Open Owl for rapid, high-quality UI development.
 
 **Recommendation:** Approve and prioritize this migration for the next development cycle.
 

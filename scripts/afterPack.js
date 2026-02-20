@@ -39,7 +39,7 @@ module.exports = async function afterPack(context) {
       'version-string': {
         ProductName: context.packager.appInfo.productName,
         FileDescription: context.packager.appInfo.productName,
-        CompanyName: 'Claude Owl Contributors',
+        CompanyName: 'Open Owl Contributors',
         LegalCopyright: 'MIT License',
       },
       'file-version': context.packager.appInfo.version,

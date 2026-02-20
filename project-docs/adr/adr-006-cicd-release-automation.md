@@ -3,13 +3,13 @@
 **Status:** Accepted
 **Date:** 2025-11-17
 **Deciders:** Engineering Team, DevOps
-**Context:** Release management, branching strategy, and automated deployments for Claude Owl
+**Context:** Release management, branching strategy, and automated deployments for Open Owl
 
 ---
 
 ## Context and Problem Statement
 
-Claude Owl is an open-source Electron desktop application that requires:
+Open Owl is an open-source Electron desktop application that requires:
 1. **Multi-platform distribution** (macOS, Windows, Linux)
 2. **Reliable release process** with version management and changelog generation
 3. **Free hosting** for binaries (GitHub Releases)
@@ -358,7 +358,7 @@ strategy:
 
 ```json
 {
-  "header": "# Changelog\n\nAll notable changes to Claude Owl will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n",
+  "header": "# Changelog\n\nAll notable changes to Open Owl will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n",
   "types": [
     { "type": "feat", "section": "✨ Features" },
     { "type": "fix", "section": "🐛 Bug Fixes" },
@@ -369,9 +369,9 @@ strategy:
     { "type": "test", "hidden": true },
     { "type": "chore", "hidden": true }
   ],
-  "commitUrlFormat": "https://github.com/antonbelev/claude-owl/commit/{{hash}}",
-  "compareUrlFormat": "https://github.com/antonbelev/claude-owl/compare/{{previousTag}}...{{currentTag}}",
-  "issueUrlFormat": "https://github.com/antonbelev/claude-owl/issues/{{id}}",
+  "commitUrlFormat": "https://github.com/antonbelev/open-owl/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/antonbelev/open-owl/compare/{{previousTag}}...{{currentTag}}",
+  "issueUrlFormat": "https://github.com/antonbelev/open-owl/issues/{{id}}",
   "scripts": {
     "prerelease": "npm run format && npm run lint && npm run typecheck && npm run test:unit && npm run build"
   }
@@ -382,8 +382,8 @@ strategy:
 
 ```json
 {
-  "appId": "com.claudeowl.app",
-  "productName": "Claude Owl",
+  "appId": "com.openowl.app",
+  "productName": "Open Owl",
   "directories": {
     "output": "release/${version}"
   },
@@ -391,7 +391,7 @@ strategy:
   "publish": {
     "provider": "github",
     "owner": "antonbelev",
-    "repo": "claude-owl",
+    "repo": "open-owl",
     "releaseType": "draft"
   },
   "mac": {
@@ -585,7 +585,7 @@ While GitHub Releases hosts the binaries, a dedicated project website provides:
 
 ### Implementation
 
-**Hosting:** GitHub Pages (`https://antonbelev.github.io/claude-owl/`)
+**Hosting:** GitHub Pages (`https://antonbelev.github.io/open-owl/`)
 - ✅ Free for public repos
 - ✅ Custom domain support (optional: `claudeowl.dev`)
 - ✅ HTTPS enabled by default
@@ -622,7 +622,7 @@ const version = await fetch('/api/github/releases/latest').then(r => r.json());
 // Show only macOS downloads initially (Phase 1)
 if (os === 'macOS') {
   const arch = isMacAppleSilicon() ? 'arm64' : 'x64';
-  showDownloadButton(`Claude-Owl-${version}-${arch}.dmg`);
+  showDownloadButton(`Open-Owl-${version}-${arch}.dmg`);
 }
 ```
 
@@ -688,7 +688,7 @@ jobs:
 **Homepage (`index.html`):**
 ```
 ┌─────────────────────────────────────────────────────┐
-│  🦉 Claude Owl                                      │
+│  🦉 Open Owl                                      │
 │  Visual UI for Claude Code Configuration           │
 │                                                     │
 │  [Download for macOS (v0.2.0)]                     │
@@ -730,12 +730,12 @@ jobs:
 
 ```html
 <!-- meta tags for search engines -->
-<meta name="description" content="Claude Owl: Open-source desktop app for managing Claude Code configurations with a visual interface. macOS, Windows, Linux.">
+<meta name="description" content="Open Owl: Open-source desktop app for managing Claude Code configurations with a visual interface. macOS, Windows, Linux.">
 <meta name="keywords" content="Claude Code, AI, Developer Tools, Electron, Configuration Management">
 
 <!-- Open Graph for social sharing -->
-<meta property="og:title" content="Claude Owl - Visual Claude Code Manager">
-<meta property="og:image" content="https://antonbelev.github.io/claude-owl/assets/og-image.png">
+<meta property="og:title" content="Open Owl - Visual Claude Code Manager">
+<meta property="og:image" content="https://antonbelev.github.io/open-owl/assets/og-image.png">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">

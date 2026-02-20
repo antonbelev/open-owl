@@ -9,15 +9,15 @@
 
 ## Context and Problem Statement
 
-Claude Owl currently depends on the external `ccusage` CLI tool for token usage reporting. While ccusage is excellent for terminal-based analytics, this creates several limitations:
+Open Owl currently depends on the external `ccusage` CLI tool for token usage reporting. While ccusage is excellent for terminal-based analytics, this creates several limitations:
 
 1. **External Dependency**: Users must separately install ccusage
 2. **No Visual Analytics**: Text-based output lacks charts, trends, and interactive exploration
-3. **Limited Features**: Cannot provide Claude Owl-specific insights (project comparisons, budget alerts, etc.)
+3. **Limited Features**: Cannot provide Open Owl-specific insights (project comparisons, budget alerts, etc.)
 4. **No Persistence**: No historical tracking beyond what ccusage parses from JSONL files
 5. **CLI-Only**: Cannot leverage GUI advantages (filtering, drill-down, export, etc.)
 
-**Goal:** Build a native, first-class metrics and analytics system within Claude Owl that eliminates the ccusage dependency while providing superior UX and deeper insights.
+**Goal:** Build a native, first-class metrics and analytics system within Open Owl that eliminates the ccusage dependency while providing superior UX and deeper insights.
 
 ---
 
@@ -395,7 +395,7 @@ Rich, interactive charts and dashboards using React components.
 
 **9.3. Live Activity Feed**
 - Stream of recent messages:
-  - "10:42 AM - claude-owl project: +1,234 tokens ($0.05)"
+  - "10:42 AM - open-owl project: +1,234 tokens ($0.05)"
   - "10:45 AM - my-app project: +567 tokens ($0.02)"
 - Limit: Last 20 events
 
@@ -599,9 +599,9 @@ CREATE INDEX idx_sync_status ON sync_metadata(sync_status);
 ### Database Location
 - **Path**: `{app.getPath('userData')}/metrics.db`
 - **Example**:
-  - macOS: `/Users/user/Library/Application Support/claude-owl/metrics.db`
-  - Windows: `C:\Users\user\AppData\Roaming\claude-owl\metrics.db`
-  - Linux: `/home/user/.config/claude-owl/metrics.db`
+  - macOS: `/Users/user/Library/Application Support/open-owl/metrics.db`
+  - Windows: `C:\Users\user\AppData\Roaming\open-owl\metrics.db`
+  - Linux: `/home/user/.config/open-owl/metrics.db`
 - **Key Insight**: `userData` directory persists across app updates (not deleted during reinstall)
 - **Backup**: Auto-backup to `metrics.db.backup` on schema migrations
 
@@ -611,7 +611,7 @@ CREATE INDEX idx_sync_status ON sync_metadata(sync_status);
 
 ### Critical Constraint: Data Must Survive App Updates
 
-**Problem**: When users download a new version of Claude Owl (e.g., v0.4.0 → v0.5.0), the app binary gets replaced but **user data must persist**.
+**Problem**: When users download a new version of Open Owl (e.g., v0.4.0 → v0.5.0), the app binary gets replaced but **user data must persist**.
 
 **Solution**: Electron's `app.getPath('userData')` returns a **user-specific data directory** that is:
 - ✅ **Persistent** - Never deleted during app updates/reinstalls
@@ -622,9 +622,9 @@ CREATE INDEX idx_sync_status ON sync_metadata(sync_status);
 
 ```
 # macOS Example
-/Applications/Claude Owl.app/                  # App binary (replaced on update)
+/Applications/Open Owl.app/                  # App binary (replaced on update)
 /Users/user/Library/Application Support/
-  └── claude-owl/                              # userData (PERSISTS)
+  └── open-owl/                              # userData (PERSISTS)
       ├── metrics.db                           # Primary database
       ├── metrics.db.backup                    # Auto-backup (latest)
       ├── metrics.db.backup.20250115           # Timestamped backups
@@ -738,7 +738,7 @@ export class DatabaseMigrationService {
     if (currentVersion > targetVersion) {
       throw new Error(
         `Database version (${currentVersion}) is newer than app version (${targetVersion}). ` +
-        `Please update Claude Owl to the latest version.`
+        `Please update Open Owl to the latest version.`
       );
     }
 
@@ -867,7 +867,7 @@ export class MetricsService {
       // Show error to user
       dialog.showErrorBox(
         'Database Migration Failed',
-        `Claude Owl failed to upgrade your metrics database. ` +
+        `Open Owl failed to upgrade your metrics database. ` +
         `Your data has been restored from backup. Error: ${error.message}`
       );
 
@@ -880,7 +880,7 @@ export class MetricsService {
   private notifyUserOfMigration(result: MigrationResult): void {
     // Optional: Show subtle notification
     const notification = new Notification({
-      title: 'Claude Owl Updated',
+      title: 'Open Owl Updated',
       body: `Your metrics database has been upgraded to v${result.toVersion}. All data preserved.`,
       silent: true
     });
@@ -893,7 +893,7 @@ export class MetricsService {
 
 #### Scenario 1: Fresh Install (No Existing Database)
 ```
-1. User installs Claude Owl v0.3.0 for first time
+1. User installs Open Owl v0.3.0 for first time
 2. App starts, userData directory doesn't exist
 3. MetricsService.initialize():
    - Creates userData directory
@@ -906,7 +906,7 @@ export class MetricsService {
 
 #### Scenario 2: Update from v0.3.0 → v0.4.0 (Minor Update)
 ```
-1. User has Claude Owl v0.3.0 with metrics.db at schema v3
+1. User has Open Owl v0.3.0 with metrics.db at schema v3
 2. User downloads v0.4.0 installer
 3. Installer replaces app binary in /Applications/
 4. userData directory untouched (still has metrics.db v3)
@@ -1004,7 +1004,7 @@ export class BackupService {
 export async function exportBackup(): Promise<void> {
   const { filePath } = await dialog.showSaveDialog({
     title: 'Export Metrics Backup',
-    defaultPath: `claude-owl-metrics-${new Date().toISOString().split('T')[0]}.db`,
+    defaultPath: `open-owl-metrics-${new Date().toISOString().split('T')[0]}.db`,
     filters: [{ name: 'SQLite Database', extensions: ['db'] }]
   });
 
@@ -1054,7 +1054,7 @@ export async function importBackup(): Promise<void> {
       dialog.showMessageBox({
         type: 'info',
         title: 'Import Complete',
-        message: 'Metrics database imported successfully. Please restart Claude Owl.'
+        message: 'Metrics database imported successfully. Please restart Open Owl.'
       });
     }
   }
@@ -1366,7 +1366,7 @@ describe('Metrics Database Migration (Integration)', () => {
 **Pre-Release Testing (before shipping new version):**
 
 1. ✅ **Fresh Install Test**
-   - Delete `~/Library/Application Support/claude-owl/`
+   - Delete `~/Library/Application Support/open-owl/`
    - Install new version
    - Open Metrics page
    - Verify database created with latest schema
@@ -1413,7 +1413,7 @@ describe('Metrics Database Migration (Integration)', () => {
    - Survives uninstall/reinstall cycles (unless user explicitly deletes)
 
 2. **Database is Outside App Bundle**
-   - `metrics.db` lives in userData, not in `/Applications/Claude Owl.app/`
+   - `metrics.db` lives in userData, not in `/Applications/Open Owl.app/`
    - When installer replaces app, database is untouched
    - Same mechanism used by Chrome, VS Code, Slack, etc.
 
@@ -1434,7 +1434,7 @@ describe('Metrics Database Migration (Integration)', () => {
    - Used by: VS Code extensions, Discord data, Spotify cache, etc.
    - Well-tested across millions of users
 
-**Bottom Line:** Users can confidently update Claude Owl knowing their metrics history is safe. Even in worst-case failure scenarios, backups enable full recovery.
+**Bottom Line:** Users can confidently update Open Owl knowing their metrics history is safe. Even in worst-case failure scenarios, backups enable full recovery.
 
 ---
 
@@ -2069,7 +2069,7 @@ This native metrics system eliminates the ccusage dependency while delivering a 
 2. **Advanced Features**: Budgets, alerts, forecasting, live monitoring
 3. **Performance**: Fast SQLite queries, pre-computed aggregates
 4. **Offline-First**: All data local, no network required
-5. **Seamless Integration**: Embedded in Claude Owl, no external tools
+5. **Seamless Integration**: Embedded in Open Owl, no external tools
 
 **Implementation Effort**: ~9 weeks (1 engineer)
 **Maintenance**: Low (stable JSONL format, SQLite reliability)

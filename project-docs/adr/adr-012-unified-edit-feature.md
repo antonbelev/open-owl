@@ -3,14 +3,14 @@
 **Status:** Proposed
 **Date:** 2026-01-10
 **Decision Makers:** Product Team, Engineering Team
-**Stakeholders:** Claude Owl Users
+**Stakeholders:** Open Owl Users
 **Related:** ADR-005 (Project Selection UX), ADR-011 (Plugins Manager)
 
 ---
 
 ## Executive Summary
 
-This ADR defines a unified editing experience across all Markdown-based configurations in Claude Owl: **Subagents**, **Skills**, **Slash Commands**, **Plugins** (plugin-provided components), and **Hooks**. Currently, these features have inconsistent edit capabilities, UI patterns, and implementation approaches. This ADR establishes:
+This ADR defines a unified editing experience across all Markdown-based configurations in Open Owl: **Subagents**, **Skills**, **Slash Commands**, **Plugins** (plugin-provided components), and **Hooks**. Currently, these features have inconsistent edit capabilities, UI patterns, and implementation approaches. This ADR establishes:
 
 1. **A consistent edit pattern** across all MD-based configurations
 2. **Shared reusable components** for the edit experience
@@ -21,7 +21,7 @@ This ADR defines a unified editing experience across all Markdown-based configur
 
 ## Context and Problem Statement
 
-Claude Owl manages several types of configurations that are ultimately stored as Markdown files with YAML frontmatter:
+Open Owl manages several types of configurations that are ultimately stored as Markdown files with YAML frontmatter:
 
 | Feature | File Format | Current Edit Support | Gaps |
 |---------|-------------|---------------------|------|
@@ -45,7 +45,7 @@ Claude Owl manages several types of configurations that are ultimately stored as
 
 4. **Inconsistent Validation Patterns**: Some features validate in real-time, others on submit. Error display varies.
 
-5. **Hooks Are Not First-Class Citizens**: Unlike other features, hooks can only be edited via external JSON file editing, breaking the Claude Owl experience.
+5. **Hooks Are Not First-Class Citizens**: Unlike other features, hooks can only be edited via external JSON file editing, breaking the Open Owl experience.
 
 ---
 
@@ -53,7 +53,7 @@ Claude Owl manages several types of configurations that are ultimately stored as
 
 ### 1. Feature Classification
 
-We classify Claude Owl configurations into three editability tiers:
+We classify Open Owl configurations into three editability tiers:
 
 #### Tier 1: Fully Editable (User/Project owned)
 - **Slash Commands** (user-level, project-level)
@@ -61,7 +61,7 @@ We classify Claude Owl configurations into three editability tiers:
 - **Skills** (user-level, project-level)
 - **Hooks** (user-level, project-level settings.json)
 
-These can be created, read, updated, and deleted through Claude Owl.
+These can be created, read, updated, and deleted through Open Owl.
 
 #### Tier 2: Read-Only Display
 - **Plugin-provided Commands** (from installed plugins)
@@ -250,7 +250,7 @@ Hooks are currently the most deficient feature. This ADR proposes a full redesig
 - Hooks displayed in read-only list
 - "Edit in settings.json" opens external text editor
 - No validation, no structured editing
-- No create/delete within Claude Owl
+- No create/delete within Open Owl
 
 #### Proposed State (✅ Full Edit Support)
 ```
@@ -678,7 +678,7 @@ export const hookEditConfig: EditConfig = {
 
 ### Alternative 1: Keep External Editor for Hooks ❌
 **Approach:** Maintain "Edit in settings.json" pattern for hooks.
-**Rejected:** Breaks Claude Owl's value proposition of visual configuration management. Users expect in-app editing.
+**Rejected:** Breaks Open Owl's value proposition of visual configuration management. Users expect in-app editing.
 
 ### Alternative 2: Monaco Editor Integration ❌
 **Approach:** Use Monaco (VS Code) editor for raw markdown/JSON editing.
@@ -690,7 +690,7 @@ export const hookEditConfig: EditConfig = {
 
 ### Alternative 4: CLI-Only Editing ❌
 **Approach:** Remove in-app editing, redirect all edits to CLI commands.
-**Rejected:** Defeats purpose of Claude Owl as a visual configuration tool.
+**Rejected:** Defeats purpose of Open Owl as a visual configuration tool.
 
 ---
 

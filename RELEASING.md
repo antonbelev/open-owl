@@ -1,6 +1,6 @@
 # Release Process Guide
 
-This document explains how to create and publish releases for Claude Owl. Our release process is automated using GitHub Actions and follows semantic versioning.
+This document explains how to create and publish releases for Open Owl. Our release process is automated using GitHub Actions and follows semantic versioning.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ This document explains how to create and publish releases for Claude Owl. Our re
 
 ## Overview
 
-Claude Owl uses a **Git Flow-inspired workflow** with automated builds via GitHub Actions:
+Open Owl uses a **Git Flow-inspired workflow** with automated builds via GitHub Actions:
 
 ```
 develop → release/vX.Y.x → main (tagged) → GitHub Actions → Draft Release
@@ -117,11 +117,11 @@ git merge main --no-ff -m "chore(release): sync main back to develop"
 git push origin develop
 
 # 6. Monitor GitHub Actions
-# Visit: https://github.com/antonbelev/claude-owl/actions
+# Visit: https://github.com/antonbelev/open-owl/actions
 # Wait ~15-20 minutes for builds to complete
 
 # 7. Publish draft release
-# Visit: https://github.com/antonbelev/claude-owl/releases
+# Visit: https://github.com/antonbelev/open-owl/releases
 # Review, edit if needed, then click "Publish release"
 ```
 
@@ -226,7 +226,7 @@ open release/0.2.0/Claude\ Owl-0.2.0-arm64.dmg  # macOS example
 
 ```bash
 # 1. Monitor GitHub Actions build progress
-open https://github.com/antonbelev/claude-owl/actions
+open https://github.com/antonbelev/open-owl/actions
 
 # Build typically takes 15-20 minutes and produces:
 # - macOS: .dmg (Intel + Apple Silicon)
@@ -234,7 +234,7 @@ open https://github.com/antonbelev/claude-owl/actions
 # - Linux: .AppImage and .deb (x64 + ARM64)
 
 # 2. Once build completes, review draft release
-open https://github.com/antonbelev/claude-owl/releases
+open https://github.com/antonbelev/open-owl/releases
 
 # 3. Edit release notes if needed, then click "Publish release"
 ```
@@ -292,8 +292,8 @@ git push -u origin hotfix/v0.2.1-security-fix
 
 ```bash
 # Same as standard release - monitor Actions and publish draft
-open https://github.com/antonbelev/claude-owl/actions
-open https://github.com/antonbelev/claude-owl/releases
+open https://github.com/antonbelev/open-owl/actions
+open https://github.com/antonbelev/open-owl/releases
 ```
 
 ---
@@ -302,7 +302,7 @@ open https://github.com/antonbelev/claude-owl/releases
 
 ### How Versions Are Synced
 
-Claude Owl ensures version consistency across:
+Open Owl ensures version consistency across:
 - `package.json` - Node.js package version
 - `CHANGELOG.md` - Release notes
 - Git tags - GitHub release triggers
@@ -400,12 +400,12 @@ Each release produces:
 
 | Platform | Files | Architectures |
 |----------|-------|--------------|
-| **macOS** | `Claude-Owl-0.2.0-{arch}.dmg` | x64, arm64 |
+| **macOS** | `Open-Owl-0.2.0-{arch}.dmg` | x64, arm64 |
 | | `latest-mac.yml` | (auto-update) |
-| **Windows** | `Claude-Owl-Setup-0.2.0.exe` | x64, arm64 |
+| **Windows** | `Open-Owl-Setup-0.2.0.exe` | x64, arm64 |
 | | `latest.yml` | (auto-update) |
-| **Linux** | `Claude-Owl-0.2.0-{arch}.AppImage` | x64, arm64 |
-| | `claude-owl_0.2.0_{arch}.deb` | x64, arm64 |
+| **Linux** | `Open-Owl-0.2.0-{arch}.AppImage` | x64, arm64 |
+| | `open-owl_0.2.0_{arch}.deb` | x64, arm64 |
 | | `latest-linux.yml` | (auto-update) |
 
 ### Release as Draft
@@ -550,7 +550,7 @@ git tag -d v0.2.0
 git push origin :refs/tags/v0.2.0
 
 # Delete draft release on GitHub
-# Visit: https://github.com/antonbelev/claude-owl/releases
+# Visit: https://github.com/antonbelev/open-owl/releases
 # Click "Delete" on the draft release
 ```
 
@@ -611,12 +611,12 @@ git checkout -b hotfix/v0.2.1-rollback
 
 If you encounter issues not covered in this guide:
 
-1. Check GitHub Actions logs: https://github.com/antonbelev/claude-owl/actions
-2. Review open issues: https://github.com/antonbelev/claude-owl/issues
-3. Ask in Discussions: https://github.com/antonbelev/claude-owl/discussions
+1. Check GitHub Actions logs: https://github.com/antonbelev/open-owl/actions
+2. Review open issues: https://github.com/antonbelev/open-owl/issues
+3. Ask in Discussions: https://github.com/antonbelev/open-owl/discussions
 
 ---
 
 **Last Updated:** 2025-01-17
 **Process Version:** 1.0
-**Maintainer:** Claude Owl Contributors
+**Maintainer:** Open Owl Contributors
