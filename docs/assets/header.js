@@ -15,7 +15,7 @@
         <div class="flex items-center space-x-3">
           <a href="index.html" class="flex items-center space-x-3">
             <span class="text-3xl">🦉</span>
-            <span class="text-xl font-bold">Claude Owl</span>
+            <span class="text-xl font-bold">Open Owl</span>
           </a>
           <span class="text-xs bg-orange-600 px-2 py-1 rounded-full font-semibold">BETA</span>
           <span id="version-badge" class="text-xs bg-blue-600 px-2 py-1 rounded-full">Loading...</span>
@@ -27,7 +27,7 @@
           <a href="changelog.html" class="nav-changelog hover:text-blue-400 transition">Changelog</a>
           <a href="installation.html" class="nav-installation hover:text-blue-400 transition">Installation</a>
           <a href="security.html" class="nav-security hover:text-blue-400 transition">Security</a>
-          <a href="https://github.com/antonbelev/claude-owl" target="_blank" class="hover:text-blue-400 transition">GitHub</a>
+          <a href="https://github.com/antonbelev/open-owl" target="_blank" class="hover:text-blue-400 transition">GitHub</a>
         </div>
         <button id="mobile-menu-btn" class="md:hidden text-white">
           <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@
           <a href="changelog.html" class="nav-changelog-mobile hover:text-blue-400 transition py-2">Changelog</a>
           <a href="installation.html" class="nav-installation-mobile hover:text-blue-400 transition py-2">Installation</a>
           <a href="security.html" class="nav-security-mobile hover:text-blue-400 transition py-2">Security</a>
-          <a href="https://github.com/antonbelev/claude-owl" target="_blank" class="hover:text-blue-400 transition py-2">GitHub</a>
+          <a href="https://github.com/antonbelev/open-owl" target="_blank" class="hover:text-blue-400 transition py-2">GitHub</a>
         </div>
       </div>
     </nav>

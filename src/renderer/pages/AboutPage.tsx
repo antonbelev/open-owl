@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppVersion } from '../hooks/useAppVersion';
-import logoImage from '../assets/claude-owl-logo.png';
+import logoImage from '../assets/open-owl-logo.png';
 import '../pages/AboutPage.css';
 
 export const AboutPage: React.FC = () => {
@@ -35,16 +35,16 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="page about-page">
-      <h1 className="page-title">About Claude Owl</h1>
+      <h1 className="page-title">About OpenOwl</h1>
 
       <div className="about-container">
         {/* Logo and Version */}
         <div className="about-header">
           <div className="about-logo-section">
-            <img src={logoImage} alt="Claude Owl Logo" className="about-logo" />
+            <img src={logoImage} alt="OpenOwl Logo" className="about-logo" />
           </div>
           <div className="about-version-section">
-            <h2>Claude Owl [Beta]</h2>
+            <h2>OpenOwl</h2>
             <p className="version-text">Version {version}</p>
             <p className="tagline">
               Open-source UI for managing Claude Code configurations, settings, and features
@@ -58,7 +58,7 @@ export const AboutPage: React.FC = () => {
           <div className="links-grid">
             <a
               className="about-link"
-              onClick={() => openGitHub('https://github.com/antonbelev/claude-owl')}
+              onClick={() => openGitHub('https://github.com/antonbelev/open-owl')}
             >
               <span className="link-icon">🔗</span>
               <span>View on GitHub</span>
@@ -66,7 +66,7 @@ export const AboutPage: React.FC = () => {
             <a
               className="about-link"
               onClick={() =>
-                openGitHub('https://github.com/antonbelev/claude-owl/issues/new?labels=bug')
+                openGitHub('https://github.com/antonbelev/open-owl/issues/new?labels=bug')
               }
             >
               <span className="link-icon">🐛</span>
@@ -75,7 +75,7 @@ export const AboutPage: React.FC = () => {
             <a
               className="about-link"
               onClick={() =>
-                openGitHub('https://github.com/antonbelev/claude-owl/issues/new?labels=enhancement')
+                openGitHub('https://github.com/antonbelev/open-owl/issues/new?labels=enhancement')
               }
             >
               <span className="link-icon">💡</span>
@@ -95,7 +95,7 @@ export const AboutPage: React.FC = () => {
                 <a
                   className="inline-link"
                   onClick={() =>
-                    openGitHub('https://github.com/antonbelev/claude-owl/issues/new?labels=bug')
+                    openGitHub('https://github.com/antonbelev/open-owl/issues/new?labels=bug')
                   }
                 >
                   issue
@@ -119,7 +119,7 @@ export const AboutPage: React.FC = () => {
                   className="inline-link"
                   onClick={() =>
                     openGitHub(
-                      'https://github.com/antonbelev/claude-owl/issues/new?labels=enhancement'
+                      'https://github.com/antonbelev/open-owl/issues/new?labels=enhancement'
                     )
                   }
                 >
@@ -164,9 +164,9 @@ export const AboutPage: React.FC = () => {
 
         {/* Footer */}
         <div className="about-footer">
-          <p>© {new Date().getFullYear()} Claude Owl Contributors. Licensed under MIT.</p>
+          <p>© {new Date().getFullYear()} OpenOwl Contributors. Licensed under MIT.</p>
           <p className="footer-note">
-            Claude Owl is an open-source project and welcomes contributions from the community.
+            OpenOwl is an open-source project and welcomes contributions from the community.
           </p>
         </div>
       </div>

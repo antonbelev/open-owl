@@ -248,7 +248,7 @@ jobs:
 
           # If extraction failed, use a default message
           if [ -z "$CHANGELOG_SECTION" ]; then
-            CHANGELOG_SECTION="Release ${VERSION}\n\nSee [CHANGELOG.md](https://github.com/antonbelev/claude-owl/blob/main/CHANGELOG.md) for details."
+            CHANGELOG_SECTION="Release ${VERSION}\n\nSee [CHANGELOG.md](https://github.com/antonbelev/open-owl/blob/main/CHANGELOG.md) for details."
           fi
 
           # Save to file for multiline content
@@ -298,7 +298,7 @@ jobs:
           echo "  • Linux (.AppImage, .deb) - x64 + ARM64"
           echo ""
           echo "🔗 Release URL:"
-          echo "  https://github.com/antonbelev/claude-owl/releases/tag/${GITHUB_REF#refs/tags/}"
+          echo "  https://github.com/antonbelev/open-owl/releases/tag/${GITHUB_REF#refs/tags/}"
           echo ""
           echo "⚠️  Release is in DRAFT mode"
           echo "   1. Review the release notes"

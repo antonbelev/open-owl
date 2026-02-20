@@ -1,6 +1,6 @@
-# Claude Owl Demo Guide
+# Open Owl Demo Guide
 
-**Target Audience:** Video walkthrough demonstrating Claude Owl capabilities
+**Target Audience:** Video walkthrough demonstrating Open Owl capabilities
 **Duration:** ~10 minutes
 **Platform:** macOS (Beta v0.1.0)
 
@@ -8,7 +8,7 @@
 
 ## Introduction Script
 
-> "Claude Owl is a desktop application for macOS that provides a visual interface for managing Claude Code configurations. Instead of manually editing JSON files, you can configure subagents, skills, slash commands, hooks, permissions, and more through an intuitive UI."
+> "Open Owl is a desktop application for macOS that provides a visual interface for managing Claude Code configurations. Instead of manually editing JSON files, you can configure subagents, skills, slash commands, hooks, permissions, and more through an intuitive UI."
 
 ---
 
@@ -20,7 +20,7 @@ This walkthrough demonstrates configuring Claude Code for a secure Python develo
 
 ## 1. Dashboard - System Status
 
-**Navigation:** Launch Claude Owl → Dashboard (default view)
+**Navigation:** Launch Open Owl → Dashboard (default view)
 
 **What to Show:**
 - **Claude Code Status Card**
@@ -451,7 +451,7 @@ Use these tools:
 
 ## Closing Script
 
-> "Claude Owl brings visual management to Claude Code configurations. Whether you're setting up security rules, creating custom agents, or applying status line templates, everything is just a few clicks away. No more manual JSON editing, no more syntax errors. Just a clean, intuitive interface for power users who want full control over their AI development workflow."
+> "Open Owl brings visual management to Claude Code configurations. Whether you're setting up security rules, creating custom agents, or applying status line templates, everything is just a few clicks away. No more manual JSON editing, no more syntax errors. Just a clean, intuitive interface for power users who want full control over their AI development workflow."
 
 **Call to Action:**
 - Download: [GitHub Releases]

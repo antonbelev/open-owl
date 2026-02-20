@@ -32,7 +32,7 @@ function createWindow() {
   let iconPath: string | undefined;
   if (isDev) {
     // Development: use project root icon
-    const devIconPath = path.join(__dirname, '../../claude-owl-logo.png');
+    const devIconPath = path.join(__dirname, '../../open-owl-logo.png');
     if (fs.existsSync(devIconPath)) {
       iconPath = devIconPath;
     }
@@ -57,7 +57,7 @@ function createWindow() {
       sandbox: true, // Enable sandbox for renderer process isolation
       webSecurity: true, // Enable CORS and origin checks
     },
-    title: 'Claude Owl',
+    title: 'OpenOwl',
     titleBarStyle: 'default',
     show: false,
     ...(iconPath && { icon: iconPath }), // Set icon for BrowserWindow if available
@@ -139,7 +139,7 @@ app.whenReady().then(() => {
     if (app.isPackaged) {
       iconPath = path.join(__dirname, '../../assets/icon.icns');
     } else {
-      iconPath = path.join(__dirname, '../../claude-owl-logo.png');
+      iconPath = path.join(__dirname, '../../open-owl-logo.png');
     }
 
     if (fs.existsSync(iconPath)) {

@@ -12,7 +12,7 @@ interface GitHubRelease {
 
 export class VersionService {
   private readonly REPO_OWNER = 'antonbelev';
-  private readonly REPO_NAME = 'claude-owl';
+  private readonly REPO_NAME = 'open-owl';
   private readonly GITHUB_API_URL = `https://api.github.com/repos/${this.REPO_OWNER}/${this.REPO_NAME}/releases/latest`;
 
   /**
@@ -70,7 +70,7 @@ export class VersionService {
     return new Promise((resolve, reject) => {
       const options = {
         headers: {
-          'User-Agent': 'Claude-Owl-App',
+          'User-Agent': 'Open-Owl-App',
           Accept: 'application/vnd.github.v3+json',
         },
       };

@@ -3,14 +3,14 @@
 **Status:** Proposed
 **Date:** 2025-12-13
 **Decision Makers:** Product Team, Engineering Team
-**Stakeholders:** Claude Owl Users, Claude Code Users
+**Stakeholders:** Open Owl Users, Claude Code Users
 **Related:** ADR-004 (MCP Manager), ADR-010 (Remote MCP Servers Discovery)
 
 ---
 
 ## Executive Summary
 
-This ADR outlines the plan to bring Claude Owl's Plugins Manager from "Under Development" status to production readiness. The feature will provide:
+This ADR outlines the plan to bring Open Owl's Plugins Manager from "Under Development" status to production readiness. The feature will provide:
 
 1. **Out-of-the-box access to official Anthropic plugins** from `github.com/anthropics/claude-code/plugins`
 2. **Secure marketplace management** with trust indicators and security warnings
@@ -25,7 +25,7 @@ The key insight from our MCP Manager (ADR-004) is that **delegating to Claude Co
 
 ### Current State Analysis
 
-Claude Owl has a substantial plugins implementation that is marked as "Under Development":
+Open Owl has a substantial plugins implementation that is marked as "Under Development":
 
 **What's Implemented:**
 - ✅ `PluginsService` with marketplace and plugin management (660 lines)
@@ -665,7 +665,7 @@ export const PLUGINS_CHANNELS = {
 
 #### Migration Steps
 
-1. **Detect existing Claude Owl plugin data** in `~/.claude/plugins/`
+1. **Detect existing Open Owl plugin data** in `~/.claude/plugins/`
 2. **Check if plugins exist in Claude Code** via CLI
 3. **Offer to re-install** plugins that are in our database but not in Claude Code
 4. **Clean up** our custom `installed_plugins.json` after migration

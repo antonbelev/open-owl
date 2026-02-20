@@ -1,14 +1,14 @@
 # Testing MCP Servers Locally - Developer Guide
 
-**Purpose:** Test Claude Owl's MCP Servers Manager with local MCP servers
-**Target Audience:** Developers contributing to Claude Owl
+**Purpose:** Test Open Owl's MCP Servers Manager with local MCP servers
+**Target Audience:** Developers contributing to Open Owl
 **Last Updated:** January 13, 2025
 
 ---
 
 ## Quick Start
 
-To test the MCP feature in Claude Owl, you need a local MCP server running. This guide shows you how to set up and test with simple example servers.
+To test the MCP feature in Open Owl, you need a local MCP server running. This guide shows you how to set up and test with simple example servers.
 
 ---
 
@@ -30,11 +30,11 @@ The server will start and listen on stdio. You'll see output like:
 [INFO] Ready for connections
 ```
 
-**Leave this terminal open** while testing Claude Owl.
+**Leave this terminal open** while testing Open Owl.
 
-### Step 2: Add Server in Claude Owl
+### Step 2: Add Server in Open Owl
 
-1. Open Claude Owl
+1. Open Open Owl
 2. Click **"+ Add Server"**
 3. Fill in the form:
    - **Server Name:** `sequential-thinking`
@@ -51,7 +51,7 @@ The server will start and listen on stdio. You'll see output like:
 
 ### Step 3: Test the Connection
 
-Back in Claude Owl:
+Back in Open Owl:
 1. Find the "sequential-thinking" card
 2. Click the **"Test"** button
 3. You should see:
@@ -172,9 +172,9 @@ node server.js <<< '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"pro
 
 You should see a response (press Ctrl+C to exit).
 
-### Step 5: Add to Claude Owl
+### Step 5: Add to Open Owl
 
-1. Open Claude Owl
+1. Open Open Owl
 2. Click **"+ Add Server"**
 3. Fill in:
    - **Server Name:** `test-server`
@@ -197,7 +197,7 @@ You should see a response (press Ctrl+C to exit).
 Allows Claude to read/write files in specified directories.
 
 ```bash
-# In Claude Owl:
+# In Open Owl:
 Server Name:   filesystem
 Transport:     Stdio
 Command:       npx
@@ -215,7 +215,7 @@ Arguments:
    - Create token with `repo`, `gist` scopes
    - Copy the token
 
-2. In Claude Owl:
+2. In Open Owl:
    ```
    Server Name:   github
    Transport:     Stdio
@@ -233,20 +233,20 @@ Arguments:
 
 ## Understanding the Test Flow
 
-When you click **"Test Connection"** in Claude Owl, here's what happens:
+When you click **"Test Connection"** in Open Owl, here's what happens:
 
 ### Step 1: Spawning Process ✓
-- Claude Owl starts the MCP server process
+- Open Owl starts the MCP server process
 - Command: `npx -y @modelcontextprotocol/server-sequential-thinking`
 - Platform: Automatically handles Windows (`cmd /c`) wrapping
 
 ### Step 2: Waiting for MCP Initialization ✓
 - Server starts and initializes
-- Claude Owl waits for ready signal
+- Open Owl waits for ready signal
 - Timeout: 10 seconds
 
 ### Step 3: Fetching Available Tools ✓
-- Claude Owl queries: "What tools do you provide?"
+- Open Owl queries: "What tools do you provide?"
 - Server responds with tool list
 - Example: `think_sequentially`, `break_down_problem`, `analyze_step`
 
@@ -293,7 +293,7 @@ npx --version
 **Problem:** Server crashed during startup
 
 **Solutions:**
-1. Check the error message in Claude Owl
+1. Check the error message in Open Owl
 2. Run the command manually to see the actual error:
    ```bash
    npx -y @modelcontextprotocol/server-sequential-thinking
@@ -315,7 +315,7 @@ npx --version
 
 ### Scenario 1: Basic Connection Test
 
-**Goal:** Verify Claude Owl can start and connect to a server
+**Goal:** Verify Open Owl can start and connect to a server
 
 **Steps:**
 1. Add `sequential-thinking` server (no auth needed)
@@ -338,7 +338,7 @@ npx --version
 
 ### Scenario 3: Multiple Servers
 
-**Goal:** Verify Claude Owl handles multiple servers
+**Goal:** Verify Open Owl handles multiple servers
 
 **Steps:**
 1. Add `sequential-thinking`
@@ -411,12 +411,12 @@ Use this checklist when testing MCP features:
 ### After Basic Testing Works
 1. **Test with Claude Code:**
    - Add same servers in Claude Code using `/mcp`
-   - Verify servers work in both Claude Code and Claude Owl
+   - Verify servers work in both Claude Code and Open Owl
 
 2. **Test Marketplace Feature (Phase 2):**
    - Pre-populate marketplace with 12+ servers
    - Test one-click installation
-   - Verify installed servers appear in Claude Owl
+   - Verify installed servers appear in Open Owl
 
 3. **Test Advanced Features (Phase 3):**
    - OAuth flow for HTTP servers
@@ -446,7 +446,7 @@ Use this checklist when testing MCP features:
 
 If you encounter issues testing MCP servers:
 
-1. Check the error message in Claude Owl (details view)
+1. Check the error message in Open Owl (details view)
 2. Run the server command manually to see actual errors
 3. Check server logs (usually printed to console)
 4. Verify environment variables are set correctly

@@ -1,5 +1,5 @@
 {
-  "header": "# Changelog\n\nAll notable changes to Claude Owl will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n---\n\n",
+  "header": "# Changelog\n\nAll notable changes to Open Owl will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\n---\n\n",
   "types": [
     {
       "type": "feat",
@@ -47,9 +47,9 @@
       "hidden": true
     }
   ],
-  "commitUrlFormat": "https://github.com/antonbelev/claude-owl/commit/{{hash}}",
-  "compareUrlFormat": "https://github.com/antonbelev/claude-owl/compare/{{previousTag}}...{{currentTag}}",
-  "issueUrlFormat": "https://github.com/antonbelev/claude-owl/issues/{{id}}",
+  "commitUrlFormat": "https://github.com/antonbelev/open-owl/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/antonbelev/open-owl/compare/{{previousTag}}...{{currentTag}}",
+  "issueUrlFormat": "https://github.com/antonbelev/open-owl/issues/{{id}}",
   "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
   "scripts": {
     "postchangelog": "echo '✓ Changelog updated successfully'"

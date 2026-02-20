@@ -1,6 +1,6 @@
-# Contributing to Claude Owl
+# Contributing to Open Owl
 
-Thank you for your interest in contributing to Claude Owl! This document provides guidelines and instructions for contributing to the project.
+Thank you for your interest in contributing to Open Owl! This document provides guidelines and instructions for contributing to the project.
 
 ## Table of Contents
 
@@ -25,12 +25,12 @@ This project adheres to a Code of Conduct that all contributors are expected to 
 1. **Fork the repository** on GitHub
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/yourusername/claude-owl.git
-   cd claude-owl
+   git clone https://github.com/antonbelev/open-owl.git
+   cd open-owl
    ```
 3. **Add upstream remote**:
    ```bash
-   git remote add upstream https://github.com/original/claude-owl.git
+   git remote add upstream https://github.com/original/open-owl.git
    ```
 4. **Install dependencies**:
    ```bash
@@ -62,7 +62,7 @@ npm test
 ## Project Structure
 
 ```
-claude-owl/
+open-owl/
 ├── src/
 │   ├── main/           # Electron main process
 │   ├── renderer/       # React frontend
@@ -311,7 +311,7 @@ If applicable, add screenshots.
 
 **Environment:**
  - OS: [e.g., macOS 14.0]
- - Claude Owl Version: [e.g., 0.1.0]
+ - Open Owl Version: [e.g., 0.1.0]
  - Claude Code Version: [e.g., 1.0.0]
  - Node Version: [e.g., 18.0.0]
 
@@ -339,14 +339,14 @@ Any other context, mockups, or examples.
 
 ## Questions?
 
-- Open a [Discussion](https://github.com/yourusername/claude-owl/discussions)
+- Open a [Discussion](https://github.com/antonbelev/open-owl/discussions)
 - Join our community chat (if available)
 - Check the [documentation](docs/)
 
 ## License
 
-By contributing to Claude Owl, you agree that your contributions will be licensed under the MIT License.
+By contributing to Open Owl, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
-Thank you for contributing to Claude Owl! Your efforts help make Claude Code more accessible to everyone.
+Thank you for contributing to Open Owl! Your efforts help make Claude Code more accessible to everyone.

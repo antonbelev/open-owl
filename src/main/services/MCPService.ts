@@ -34,7 +34,7 @@ export class MCPService {
   /**
    * List all MCP servers from user-level config
    *
-   * Claude Owl is a standalone app and only manages user-level MCP servers.
+   * Open Owl is a standalone app and only manages user-level MCP servers.
    * Project-specific servers should be configured in project's .mcp.json directly.
    */
   async listServers(): Promise<MCPServer[]> {
@@ -92,7 +92,7 @@ export class MCPService {
         throw new Error(`Validation failed: ${validation.errors?.map(e => e.message).join(', ')}`);
       }
 
-      // Get config file path (always user-level for Claude Owl standalone app)
+      // Get config file path (always user-level for Open Owl standalone app)
       const filePath = this.userMcpPath;
 
       // Load existing config

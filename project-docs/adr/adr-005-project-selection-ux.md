@@ -9,7 +9,7 @@
 
 ## Context and Problem Statement
 
-Claude Owl allows users to create and manage various configurations at either **user-level** (global, `~/.claude/`) or **project-level** (project-specific, `{PROJECT}/.claude/`):
+Open Owl allows users to create and manage various configurations at either **user-level** (global, `~/.claude/`) or **project-level** (project-specific, `{PROJECT}/.claude/`):
 
 - **MCP Servers** - Add Server dialog has scope dropdown
 - **Slash Commands** - Create Command has location selector (user/project)
@@ -20,7 +20,7 @@ Claude Owl allows users to create and manage various configurations at either **
 **Critical Issue:** When users select "project" scope, there is **NO mechanism to choose WHICH project**. This creates several problems:
 
 1. **Broken User Experience**: User selects "project" but the app doesn't know which project to configure
-2. **Design Constraint Violation**: Claude Owl is a standalone desktop app (not project-aware). It has no inherent concept of "current project" like an IDE would
+2. **Design Constraint Violation**: Open Owl is a standalone desktop app (not project-aware). It has no inherent concept of "current project" like an IDE would
 3. **Inconsistent Implementation**: Settings page has project selection via `ProjectSelector` component, but other features don't use it
 4. **Architectural Debt**: `ProjectContext`, `ProjectDiscoveryService`, and `ProjectSelector` exist but are isolated to Settings page
 
@@ -498,7 +498,7 @@ File: `src/renderer/components/HooksManager/*` (similar pattern)
 
 ```typescript
 // Store in localStorage
-const RECENT_PROJECT_KEY = 'claude-owl:recent-project';
+const RECENT_PROJECT_KEY = 'open-owl:recent-project';
 
 export function useRecentProject() {
   const getRecentProject = (): string | null => {
@@ -522,7 +522,7 @@ Integrate into `ProjectPicker`:
 Add to app header/navigation:
 ```
 ┌──────────────────────────────────────────────┐
-│  Claude Owl    [📁 ~/work/client-project ▼] │
+│  Open Owl    [📁 ~/work/client-project ▼] │
 ├──────────────────────────────────────────────┤
 │                                              │
 │  Project dropdown shows:                     │
@@ -728,7 +728,7 @@ test('full workflow: create project-scoped MCP server', async ({ page }) => {
 ### Positive
 
 ✅ **Consistent UX**: All features use the same project selection pattern
-✅ **Design Constraint Compliance**: Explicit project selection (Claude Owl is standalone app)
+✅ **Design Constraint Compliance**: Explicit project selection (Open Owl is standalone app)
 ✅ **Type Safety**: `projectPath` required in IPC types when scope is 'project'
 ✅ **Reusability**: `ScopeSelector` and `ProjectPicker` components shared across features
 ✅ **Discoverability**: Users see all Claude-initialized projects from `.claude.json`
@@ -907,7 +907,7 @@ await fs.writeFile('~/.claude.json', ...); // FORBIDDEN
 
 **docs/user-guide/getting-started.md**
 - Add section: "Initializing Projects with Claude Code"
-- Explain how Claude Owl discovers projects from `.claude.json`
+- Explain how Open Owl discovers projects from `.claude.json`
 
 ### Developer Documentation
 
@@ -950,7 +950,7 @@ See ADR-005 for complete architecture.
 ## References
 
 - **ADR-001**: Settings Management Architecture (foundation for this ADR)
-- **CLAUDE.md**: Design Constraint - Claude Owl is standalone app
+- **CLAUDE.md**: Design Constraint - Open Owl is standalone app
 - **GitHub Issue**: *(Link to issue tracking this work)*
 - **Figma**: *(Link to UX mockups if available)*
 

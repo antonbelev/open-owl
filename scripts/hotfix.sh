@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Claude Owl Hotfix Script
+# Open Owl Hotfix Script
 #
 # This script handles emergency hotfixes by:
 # 1. Ensuring you're on a hotfix branch (hotfix/vX.Y.Z-description)
@@ -30,7 +30,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚨 Claude Owl Hotfix Release${NC}"
+echo -e "${BLUE}🚨 Open Owl Hotfix Release${NC}"
 echo -e "${BLUE}=============================${NC}\n"
 
 # Step 1: Check we're on a hotfix branch
@@ -154,7 +154,7 @@ echo -e "${GREEN}━━━━━━━━━━━━━━━━━━━━━
 echo -e "${BLUE}Version:${NC}     ${VERSION}"
 echo -e "${BLUE}Tag:${NC}         ${TAG}\n"
 
-GITHUB_REPO="antonbelev/claude-owl"
+GITHUB_REPO="antonbelev/open-owl"
 echo -e "${BLUE}View build progress:${NC}"
 echo -e "  https://github.com/${GITHUB_REPO}/actions\n"
 

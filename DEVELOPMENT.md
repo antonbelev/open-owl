@@ -122,7 +122,7 @@ npm run typecheck
 ## Project Structure
 
 ```
-claude-owl/
+open-owl/
 ├── src/
 │   ├── main/                    # Electron main process (Node.js)
 │   │   ├── index.ts            # Entry point

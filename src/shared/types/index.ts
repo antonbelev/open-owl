@@ -1,5 +1,5 @@
 /**
- * Shared type definitions for Claude Owl
+ * Shared type definitions for Open Owl
  * These types are used across main, renderer, and preload processes
  */
 

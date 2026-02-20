@@ -2,16 +2,16 @@
 
 **Status:** Proposed
 **Date:** 2025-11-21
-**Author:** Claude Owl Team
+**Author:** Open Owl Team
 **Reviewers:** TBD
 
 ---
 
 ## Executive Summary
 
-This ADR documents all gaps preventing Claude Owl from fully supporting Windows environments. Based on comprehensive review of Claude Code documentation and the current codebase, we identify **7 critical gaps** and **12 platform-specific considerations** that need addressing for production-ready Windows support.
+This ADR documents all gaps preventing Open Owl from fully supporting Windows environments. Based on comprehensive review of Claude Code documentation and the current codebase, we identify **7 critical gaps** and **12 platform-specific considerations** that need addressing for production-ready Windows support.
 
-**Current State:** Claude Owl v0.1.5 has partial Windows support (builds for Windows, basic path handling) but lacks Windows-specific implementations for CLI detection, MCP server management, hooks execution, and managed settings paths.
+**Current State:** Open Owl v0.1.5 has partial Windows support (builds for Windows, basic path handling) but lacks Windows-specific implementations for CLI detection, MCP server management, hooks execution, and managed settings paths.
 
 **Target State:** Full feature parity between macOS and Windows with platform-specific implementations and comprehensive Windows testing.
 
@@ -64,7 +64,7 @@ From official documentation:
 
 ### 1.3 Design Constraints
 
-**Critical Constraint:** Claude Owl is a standalone desktop application without project context awareness. This means:
+**Critical Constraint:** Open Owl is a standalone desktop application without project context awareness. This means:
 - We cannot detect project framework/tooling at runtime
 - We must rely on explicit user input for project paths
 - All CLI operations require proper working directory (`cwd`) specification
@@ -230,8 +230,8 @@ getProjectClaudeDir(projectPath?: string): string {
 ```
 
 **Problem:**
-- Violates Claude Owl design constraint (standalone app, no project awareness)
-- `process.cwd()` returns Claude Owl's installation directory on Windows
+- Violates Open Owl design constraint (standalone app, no project awareness)
+- `process.cwd()` returns Open Owl's installation directory on Windows
 - When users launch from Start Menu, cwd is unpredictable
 
 **Impact:** Medium - Project-level features break when projectPath not provided
@@ -251,7 +251,7 @@ getDebugLogsPath(): string {
 
   if (osType === 'win32') {
     const appData = process.env.APPDATA || path.join(homedir(), 'AppData', 'Roaming');
-    return path.join(appData, 'claude-owl', 'logs');
+    return path.join(appData, 'open-owl', 'logs');
   }
   // ...
 }
@@ -362,7 +362,7 @@ Sandbox Settings (macOS/Linux only):
 
 **Consideration:**
 - Claude Code doesn't support sandbox on Windows
-- Claude Owl shouldn't expose these settings on Windows
+- Open Owl shouldn't expose these settings on Windows
 
 **Action:** Hide sandbox settings in Windows builds
 
@@ -630,7 +630,7 @@ getProjectClaudeDir(projectPath: string): string {
   // Remove fallback to process.cwd() - enforce explicit project path
   if (!projectPath) {
     throw new Error(
-      'projectPath is required. Claude Owl is a standalone app without project context awareness.'
+      'projectPath is required. Open Owl is a standalone app without project context awareness.'
     );
   }
   return path.join(projectPath, '.claude');
@@ -664,16 +664,16 @@ getDebugLogsPath(): string {
       console.warn('[PathService] APPDATA not found, using fallback');
     }
     const basePath = appData || path.join(homedir(), 'AppData', 'Roaming');
-    const logsPath = path.join(basePath, 'claude-owl', 'logs');
+    const logsPath = path.join(basePath, 'open-owl', 'logs');
 
     console.log('[PathService] Windows debug logs path:', logsPath);
     return logsPath;
   } else if (osType === 'darwin') {
     // macOS (existing code)
-    return path.join(homedir(), 'Library', 'Caches', 'claude-owl', 'logs');
+    return path.join(homedir(), 'Library', 'Caches', 'open-owl', 'logs');
   } else {
     // Linux (existing code)
-    return path.join(homedir(), '.cache', 'claude-owl', 'logs');
+    return path.join(homedir(), '.cache', 'open-owl', 'logs');
   }
 }
 ```
@@ -847,7 +847,7 @@ getDebugLogsPath(): string {
 
 **Test Scenarios:**
 
-1. ✅ Install Claude Owl on Windows 11 VM
+1. ✅ Install Open Owl on Windows 11 VM
 2. ✅ Verify Claude CLI detection (with and without Claude installed)
 3. ✅ Add/remove MCP server (stdio transport with npx)
 4. ✅ Create/edit user-level settings
@@ -901,7 +901,7 @@ jobs:
 | **Commands** | Create slash command | Saves to `%USERPROFILE%\.claude\commands\` | ⏳ |
 | **Hooks** | View user hooks | Displays hooks from settings.json | ⏳ |
 | **Plugins** | Import from GitHub | Downloads and installs correctly | ⏳ |
-| **Debug Logs** | View debug logs | Reads from `%APPDATA%\claude-owl\logs\` | ⏳ |
+| **Debug Logs** | View debug logs | Reads from `%APPDATA%\open-owl\logs\` | ⏳ |
 | **Project Selection** | Select project path via dialog | Updates ProjectContext correctly | ⏳ |
 
 ---
@@ -931,45 +931,45 @@ Verify installation:
 claude --version
 ​```
 
-### Step 2: Download Claude Owl
+### Step 2: Download Open Owl
 
-Download the latest `.exe` installer from [GitHub Releases](https://github.com/antonbelev/claude-owl/releases).
+Download the latest `.exe` installer from [GitHub Releases](https://github.com/antonbelev/open-owl/releases).
 
-### Step 3: Install Claude Owl
+### Step 3: Install Open Owl
 
 1. Run the downloaded installer
 2. Choose installation directory (or use default)
-3. Launch Claude Owl from Start Menu
+3. Launch Open Owl from Start Menu
 
 ### Step 4: Verify Installation
 
-Claude Owl should detect your Claude CLI installation automatically and display the version on the Dashboard.
+Open Owl should detect your Claude CLI installation automatically and display the version on the Dashboard.
 
 ## Troubleshooting (Windows)
 
 ### Claude CLI Not Detected
 
-If Claude Owl shows "Claude CLI: Not Installed" but `claude --version` works in PowerShell:
+If Open Owl shows "Claude CLI: Not Installed" but `claude --version` works in PowerShell:
 
-1. Restart Claude Owl
+1. Restart Open Owl
 2. Check PATH environment variable includes Claude installation directory
-3. Run Claude Owl as Administrator (one time)
+3. Run Open Owl as Administrator (one time)
 
 ### MCP Server Installation Fails
 
 If adding MCP servers with `npx` fails:
 
-- Claude Owl automatically adds `cmd /c` wrapper on Windows
+- Open Owl automatically adds `cmd /c` wrapper on Windows
 - Ensure Node.js is installed and `npx` is in PATH
 - Try installing the package globally first: `npm install -g @package-name`
 
 ### Hooks Not Working
 
-Claude Owl hooks require Git Bash on Windows:
+Open Owl hooks require Git Bash on Windows:
 
 1. Install Git for Windows: https://git-scm.com/download/win
 2. During installation, select "Git Bash" option
-3. Restart Claude Owl
+3. Restart Open Owl
 ```
 
 ### 7.2 README Updates

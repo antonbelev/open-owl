@@ -1,6 +1,6 @@
 # 🚀 Release Process
 
-This document describes how to create releases for Claude Owl.
+This document describes how to create releases for Open Owl.
 
 ---
 
@@ -69,13 +69,13 @@ npm run package:mac
 ```bash
 ls -lh release/0.1.0/
 # Should show:
-# - Claude Owl-0.1.0-arm64.dmg (~95MB)
-# - Claude Owl-0.1.0.dmg (~101MB)
+# - Open Owl-0.1.0-arm64.dmg (~95MB)
+# - Open Owl-0.1.0.dmg (~101MB)
 ```
 
 **Test the DMG** (Important!):
 ```bash
-open "release/0.1.0/Claude Owl-0.1.0-arm64.dmg"
+open "release/0.1.0/Open Owl-0.1.0-arm64.dmg"
 # Install and verify the app launches correctly
 ```
 
@@ -86,9 +86,9 @@ open "release/0.1.0/Claude Owl-0.1.0-arm64.dmg"
 ```bash
 # Create release with notes
 gh release create v0.1.0-beta.1 \
-  "release/0.1.0/Claude Owl-0.1.0-arm64.dmg" \
-  "release/0.1.0/Claude Owl-0.1.0.dmg" \
-  --title "🦉 Claude Owl v0.1.0 Beta 1" \
+  "release/0.1.0/Open Owl-0.1.0-arm64.dmg" \
+  "release/0.1.0/Open Owl-0.1.0.dmg" \
+  --title "🦉 Open Owl v0.1.0 Beta 1" \
   --notes "First beta release for macOS. See README for installation instructions." \
   --prerelease
 ```
@@ -96,20 +96,20 @@ gh release create v0.1.0-beta.1 \
 **With release notes file:**
 ```bash
 gh release create v0.1.0-beta.1 \
-  "release/0.1.0/Claude Owl-0.1.0-arm64.dmg" \
-  "release/0.1.0/Claude Owl-0.1.0.dmg" \
-  --title "🦉 Claude Owl v0.1.0 Beta 1" \
+  "release/0.1.0/Open Owl-0.1.0-arm64.dmg" \
+  "release/0.1.0/Open Owl-0.1.0.dmg" \
+  --title "🦉 Open Owl v0.1.0 Beta 1" \
   --notes-file RELEASE_NOTES.md \
   --prerelease
 ```
 
 #### Option B: GitHub UI
 
-1. Go to: https://github.com/antonbelev/claude-owl/releases
+1. Go to: https://github.com/antonbelev/open-owl/releases
 2. Click "Create a new release"
 3. Fill in:
    - **Tag:** `v0.1.0-beta.1` (creates new tag)
-   - **Title:** `🦉 Claude Owl v0.1.0 Beta 1`
+   - **Title:** `🦉 Open Owl v0.1.0 Beta 1`
    - **Description:** See release notes template below
 4. Upload both DMG files
 5. Check "Set as a pre-release" (for beta)
@@ -134,21 +134,21 @@ GitHub Actions will:
 ## Release Notes Template
 
 ```markdown
-## 🎉 Claude Owl v{VERSION} Beta
+## 🎉 Open Owl v{VERSION} Beta
 
 Visual UI for managing Claude Code configurations.
 
 ### 📦 Installation (macOS only)
 
 **Apple Silicon (M1/M2/M3 Macs):**
-Download `Claude Owl-{VERSION}-arm64.dmg`
+Download `Open Owl-{VERSION}-arm64.dmg`
 
 **Intel Macs:**
-Download `Claude Owl-{VERSION}.dmg`
+Download `Open Owl-{VERSION}.dmg`
 
 **First Time Setup:**
 1. Open the downloaded DMG file
-2. Drag "Claude Owl" to your Applications folder
+2. Drag "Open Owl" to your Applications folder
 3. Right-click the app → "Open" (bypasses unsigned app warning)
 4. Click "Open" in the dialog
 
@@ -166,12 +166,12 @@ Download `Claude Owl-{VERSION}.dmg`
 
 ### 🐛 Report Issues
 
-Found a bug? [Open an issue](https://github.com/antonbelev/claude-owl/issues/new)
+Found a bug? [Open an issue](https://github.com/antonbelev/open-owl/issues/new)
 
 ### 📚 Documentation
 
-- [README](https://github.com/antonbelev/claude-owl#readme)
-- [Contributing Guide](https://github.com/antonbelev/claude-owl/blob/main/CONTRIBUTING.md)
+- [README](https://github.com/antonbelev/open-owl#readme)
+- [Contributing Guide](https://github.com/antonbelev/open-owl/blob/main/CONTRIBUTING.md)
 ```
 
 ---
@@ -258,13 +258,13 @@ gh auth login
 **Error: "HTTP 404: Not Found"**
 ```bash
 # Verify repository exists and you have access
-gh repo view antonbelev/claude-owl
+gh repo view antonbelev/open-owl
 ```
 
 ### CI/CD Issues
 
 **Build fails in GitHub Actions:**
-- Check logs: https://github.com/antonbelev/claude-owl/actions
+- Check logs: https://github.com/antonbelev/open-owl/actions
 - Common issue: Node version mismatch
 - Ensure `package-lock.json` is committed
 
@@ -310,7 +310,7 @@ gh repo view antonbelev/claude-owl
      "publish": {
        "provider": "github",
        "owner": "antonbelev",
-       "repo": "claude-owl"
+       "repo": "open-owl"
      }
    }
    ```
@@ -339,5 +339,5 @@ strategy:
 
 ## Questions?
 
-- Open an issue: https://github.com/antonbelev/claude-owl/issues
-- Check discussions: https://github.com/antonbelev/claude-owl/discussions
+- Open an issue: https://github.com/antonbelev/open-owl/issues
+- Check discussions: https://github.com/antonbelev/open-owl/discussions

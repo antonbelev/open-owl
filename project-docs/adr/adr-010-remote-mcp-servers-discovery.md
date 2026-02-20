@@ -3,14 +3,14 @@
 **Status:** Proposed
 **Date:** 2025-12-10
 **Decision Makers:** Product Team, Engineering Team
-**Stakeholders:** Claude Owl Users, Claude Code Users
+**Stakeholders:** Open Owl Users, Claude Code Users
 **Supersedes:** Extends ADR-004 (MCP Manager) Phase 2: Marketplace & Discovery
 
 ---
 
 ## Executive Summary
 
-This ADR proposes extending Claude Owl's MCP Manager with a **Remote MCP Servers Discovery** feature that allows users to:
+This ADR proposes extending Open Owl's MCP Manager with a **Remote MCP Servers Discovery** feature that allows users to:
 
 1. Browse and search a curated directory of remote MCP servers (sourced from mcpservers.org and our own registry)
 2. **Pre-verify connections** before adding servers to Claude Code
@@ -25,7 +25,7 @@ The key differentiator is **connection verification before configuration** - use
 
 ### Current State
 
-Claude Owl's MCP Manager (ADR-004) currently supports:
+Open Owl's MCP Manager (ADR-004) currently supports:
 
 - ✅ Adding/removing stdio and HTTP/SSE servers via `claude mcp` CLI
 - ✅ Viewing installed servers with status indicators
@@ -156,7 +156,7 @@ export interface RemoteMCPServer {
   logoUrl?: string;
 
   // Discovery metadata
-  source: 'mcpservers.org' | 'claude-owl' | 'community';
+  source: 'mcpservers.org' | 'open-owl' | 'community';
   lastVerified?: string;               // ISO date of last health check
   healthStatus?: 'healthy' | 'degraded' | 'offline' | 'unknown';
 }
@@ -636,7 +636,7 @@ export class RemoteMCPRegistryService {
     try {
       const response = await fetch(this.MCPSERVERS_ORG_URL, {
         headers: {
-          'User-Agent': 'Claude-Owl/1.0 (https://github.com/antonbelev/claude-owl)',
+          'User-Agent': 'Open-Owl/1.0 (https://github.com/antonbelev/open-owl)',
           'Accept': 'application/json'
         },
         signal: AbortSignal.timeout(10000)
@@ -682,7 +682,7 @@ export class RemoteMCPRegistryService {
       merged.set(server.id, {
         ...merged.get(server.id),
         ...server,
-        source: server.source || 'claude-owl'
+        source: server.source || 'open-owl'
       });
     }
 
@@ -952,7 +952,7 @@ describe('Remote MCP Integration', () => {
 - Only support OAuth for verified providers
 - Display full OAuth URL before redirect
 - Warn users about granting permissions
-- Never store OAuth tokens in Claude Owl
+- Never store OAuth tokens in Open Owl
 
 ### Risk 4: Rate Limiting from Servers
 
@@ -1145,19 +1145,19 @@ Based on mcpservers.org as of December 2025:
 
 ## Conclusion
 
-The Remote MCP Servers Discovery feature will transform Claude Owl into a comprehensive MCP management tool by:
+The Remote MCP Servers Discovery feature will transform Open Owl into a comprehensive MCP management tool by:
 
 1. **Eliminating Discovery Pain:** Users can browse verified remote servers instead of hunting for URLs
 2. **Building Confidence:** Pre-verification lets users know a server works before investing setup time
 3. **Prioritizing Security:** Clear risk assessments help users make informed decisions
 4. **Attributing Properly:** mcpservers.org gets prominent credit for their valuable work
 
-The "verify first, configure later" approach differentiates Claude Owl from other tools and addresses the key user pain point: wasting time on configurations that were never going to work.
+The "verify first, configure later" approach differentiates Open Owl from other tools and addresses the key user pain point: wasting time on configurations that were never going to work.
 
 **Expected Impact:**
 - 70% reduction in MCP setup failures
 - 50% faster time to first successful remote server connection
-- Increased adoption of remote MCP servers among Claude Owl users
+- Increased adoption of remote MCP servers among Open Owl users
 
 ---
 

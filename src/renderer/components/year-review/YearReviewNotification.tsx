@@ -18,7 +18,7 @@ import {
 } from '@/renderer/utils/year-review-storage';
 
 /**
- * Notification modal that appears when user first opens Claude Owl
+ * Notification modal that appears when user first opens Open Owl
  * during the Year in Review period (Dec 15 - Jan 1)
  */
 export const YearReviewNotification: React.FC = () => {

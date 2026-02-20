@@ -3,15 +3,15 @@
 **Status:** Proposed
 **Date:** 2025-11-15
 **Decision Makers:** Product Team, Engineering Team, Security Team
-**Stakeholders:** Claude Owl Users, Claude Code Power Users
+**Stakeholders:** Open Owl Users, Claude Code Power Users
 
 ---
 
 ## ⚠️ CRITICAL DESIGN CONSTRAINT
 
-**Claude Owl is a STANDALONE desktop application, NOT project-aware.**
+**Open Owl is a STANDALONE desktop application, NOT project-aware.**
 
-Users launch Claude Owl from the Applications folder with no project context. Therefore:
+Users launch Open Owl from the Applications folder with no project context. Therefore:
 - ✗ **NOT supported:** Auto-detection of current project
 - ✗ **NOT supported:** Automatic hook installation based on project type
 - ✓ **SUPPORTED:** User-level hooks (`~/.claude/settings.json`)
@@ -105,7 +105,7 @@ The `claude-code-hooks-mastery` repository demonstrates advanced hook patterns t
 
 ### Current Implementation (Phase 1 - Complete)
 
-Claude Owl has a **production-ready read-only Hooks Manager** with:
+Open Owl has a **production-ready read-only Hooks Manager** with:
 
 ✅ **2,199 lines of code across 15 files**
 ✅ **8 hook event types** fully visualized (PreToolUse, PostToolUse, UserPromptSubmit, Notification, Stop, SubagentStop, SessionStart, SessionEnd)
@@ -1221,7 +1221,7 @@ export class HookSandbox {
   private tempDir: string;
 
   constructor() {
-    this.tempDir = path.join(os.tmpdir(), 'claude-owl-sandbox');
+    this.tempDir = path.join(os.tmpdir(), 'open-owl-sandbox');
   }
 
   async testBashHook(hook: Hook, mockInput: any, event: HookEvent): Promise<SandboxTestResult> {
@@ -1646,7 +1646,7 @@ Example Workflow: "Secure Development Gate"
 1. User's sensitive files (.env, credentials, SSH keys)
 2. System integrity (prevent destructive commands)
 3. Data privacy (prevent exfiltration)
-4. Claude Owl configuration (prevent corruption)
+4. Open Owl configuration (prevent corruption)
 
 **Threat Actors:**
 1. **Malicious LLM Behavior:** Claude Code attempts dangerous operations
@@ -1942,7 +1942,7 @@ Time: ~30 minutes
 ## Success Metrics
 
 ### Adoption Metrics (Phase 2)
-- **Target:** 40% of Claude Owl users install at least 1 hook within first month
+- **Target:** 40% of Open Owl users install at least 1 hook within first month
 - **Target:** Average 3 hooks per user
 - **Target:** 90% of installations use templates (not custom hooks)
 
@@ -1967,7 +1967,7 @@ Time: ~30 minutes
 
 2. **How do we handle hook script dependencies (npm packages, pip modules)?**
    - Option A: Require users to install dependencies manually
-   - Option B: Bundle dependencies with Claude Owl
+   - Option B: Bundle dependencies with Open Owl
    - **Proposal:** Phase 2 = manual, Phase 4 = UV-style dependency isolation
 
 3. **Should we allow hooks to communicate with each other?**
@@ -2050,7 +2050,7 @@ The Hooks Manager evolution from read-only viewer to production-ready workflow t
 - 60% reduction in accidental security incidents
 - 40% adoption rate within first month (vs <5% currently)
 
-This implementation aligns with Claude Owl's mission: **Make Claude Code's most powerful features accessible to all users, regardless of technical skill level.**
+This implementation aligns with Open Owl's mission: **Make Claude Code's most powerful features accessible to all users, regardless of technical skill level.**
 
 ---
 
