@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Installation Guide - Claude Owl</title>
+  <title>Installation Guide - Open Owl</title>
 
-  <meta name="description" content="Step-by-step installation guide for Claude Owl on macOS">
+  <meta name="description" content="Step-by-step installation guide for Open Owl on macOS">
   <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 
   <!-- Tailwind CSS CDN -->
@@ -27,7 +27,7 @@
           Installation Guide
         </h1>
         <p class="text-xl text-slate-400">
-          Get Claude Owl up and running in minutes
+          Get Open Owl up and running in minutes
         </p>
       </div>
 
@@ -77,7 +77,7 @@
         <div class="flex items-start mb-4">
           <span class="text-3xl bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">1</span>
           <div class="flex-1">
-            <h2 class="text-2xl font-bold mb-2">Download Claude Owl for macOS</h2>
+            <h2 class="text-2xl font-bold mb-2">Download Open Owl for macOS</h2>
             <p class="text-slate-400 mb-4">
               Choose the version that matches your Mac's processor
             </p>
@@ -143,7 +143,7 @@
               <li class="flex items-start">
                 <span class="text-blue-400 font-bold mr-3">2.</span>
                 <div>
-                  <p><strong>Drag Claude Owl to Applications</strong></p>
+                  <p><strong>Drag Open Owl to Applications</strong></p>
                   <p class="text-sm text-slate-400">A window will appear with the app icon and Applications folder</p>
                 </div>
               </li>
@@ -171,7 +171,7 @@
         <div class="flex items-start mb-4">
           <span class="text-3xl bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">3</span>
           <div class="flex-1">
-            <h2 class="text-2xl font-bold mb-2">Launch Claude Owl</h2>
+            <h2 class="text-2xl font-bold mb-2">Launch Open Owl</h2>
             <p class="text-slate-400 mb-4">
               First-time setup and security approval
             </p>
@@ -187,7 +187,7 @@
               <li class="flex items-start">
                 <span class="text-blue-400 font-bold mr-3">2.</span>
                 <div>
-                  <p><strong>Double-click Claude Owl</strong></p>
+                  <p><strong>Double-click Open Owl</strong></p>
                   <p class="text-sm text-slate-400">The app will start launching</p>
                 </div>
               </li>
@@ -202,12 +202,12 @@
           <span class="mr-3">⚠️</span> macOS Security Warning
         </h2>
         <p class="text-slate-300 mb-4">
-          When you first open Claude Owl, macOS may show this warning:
+          When you first open Open Owl, macOS may show this warning:
         </p>
 
         <div class="bg-slate-900 p-4 rounded-lg mb-4 border border-slate-700">
           <p class="text-center text-slate-300 italic">
-            "Claude Owl cannot be opened because the developer cannot be verified."
+            "Open Owl cannot be opened because the developer cannot be verified."
           </p>
         </div>
 
@@ -221,7 +221,7 @@
             <div>
               <p class="text-slate-300"><strong>Right-click and Open</strong></p>
               <ol class="text-sm text-slate-400 mt-2 space-y-1 ml-4">
-                <li>1. Right-click (or Control-click) the Claude Owl icon</li>
+                <li>1. Right-click (or Control-click) the Open Owl icon</li>
                 <li>2. Select "Open" from the menu</li>
                 <li>3. Click "Open" in the dialog that appears</li>
               </ol>
@@ -249,23 +249,23 @@
             <strong>🚨 "App is damaged" error?</strong>
           </p>
           <p class="text-sm text-red-100 mb-2">
-            If you see <em>"Claude Owl is damaged and can't be opened"</em> or <em>"You should move it to the Trash"</em>, this is a macOS security restriction on unsigned apps downloaded from the internet.
+            If you see <em>"Open Owl is damaged and can't be opened"</em> or <em>"You should move it to the Trash"</em>, this is a macOS security restriction on unsigned apps downloaded from the internet.
           </p>
           <p class="text-sm text-red-100 mb-2">
-            <strong>✅ Verified Fix:</strong> Run this Terminal command after dragging Claude Owl to Applications:
+            <strong>✅ Verified Fix:</strong> Run this Terminal command after dragging Open Owl to Applications:
           </p>
           <code class="block bg-slate-900 text-green-400 text-sm px-3 py-2 rounded mb-2 font-mono">
-            xattr -r -d com.apple.quarantine "/Applications/Claude Owl.app"
+            xattr -r -d com.apple.quarantine "/Applications/Open Owl.app"
           </code>
           <p class="text-xs text-red-200">
-            This removes the download quarantine flag. After running this command, Claude Owl will launch normally.
+            This removes the download quarantine flag. After running this command, Open Owl will launch normally.
           </p>
         </div>
 
         <div class="mt-4 p-3 bg-blue-900/30 border border-blue-700 rounded-lg">
           <p class="text-sm text-blue-300">
             <strong>📝 Why does this happen?</strong>
-            Claude Owl is currently distributed without Apple code signing (which costs $99/year). macOS automatically quarantines downloaded unsigned apps and prevents them from launching. Code signing will be added in a future version.
+            Open Owl is currently distributed without Apple code signing (which costs $99/year). macOS automatically quarantines downloaded unsigned apps and prevents them from launching. Code signing will be added in a future version.
           </p>
         </div>
       </div>
@@ -277,7 +277,7 @@
         </h2>
         <div class="space-y-3 text-slate-300">
           <p>
-            Once Claude Owl is running, you can:
+            Once Open Owl is running, you can:
           </p>
           <ul class="space-y-2 ml-6">
             <li class="flex items-start">
@@ -304,10 +304,10 @@
       <div class="mt-8 text-center">
         <p class="text-slate-400 mb-4">Need help or found a bug?</p>
         <div class="flex justify-center space-x-4">
-          <a href="https://github.com/antonbelev/claude-owl/issues" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-6 py-3 rounded-lg transition">
+          <a href="https://github.com/antonbelev/open-owl/issues" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-6 py-3 rounded-lg transition">
             Report an Issue
           </a>
-          <a href="https://github.com/antonbelev/claude-owl/discussions" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
+          <a href="https://github.com/antonbelev/open-owl/discussions" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
             Ask a Question
           </a>
         </div>
@@ -350,12 +350,12 @@
         <div class="flex items-start mb-4">
           <span class="text-3xl bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">1</span>
           <div class="flex-1">
-            <h2 class="text-2xl font-bold mb-2">Download Claude Owl for Windows</h2>
+            <h2 class="text-2xl font-bold mb-2">Download Open Owl for Windows</h2>
             <p class="text-slate-400 mb-4">
               One installer works for all Windows systems (x64 and ARM64)
             </p>
 
-            <a href="https://github.com/antonbelev/claude-owl/releases/latest" target="_blank" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+            <a href="https://github.com/antonbelev/open-owl/releases/latest" target="_blank" class="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
               </svg>
@@ -365,7 +365,7 @@
             <div class="mt-4 p-3 bg-blue-900/30 border border-blue-700 rounded-lg">
               <p class="text-sm text-blue-300">
                 <strong>💡 On the releases page:</strong>
-                Look for <code class="bg-slate-900 px-1 py-0.5 rounded">Claude Owl Setup X.X.X.exe</code> in the Assets section
+                Look for <code class="bg-slate-900 px-1 py-0.5 rounded">Open Owl Setup X.X.X.exe</code> in the Assets section
               </p>
             </div>
           </div>
@@ -386,7 +386,7 @@
               <div class="flex items-start">
                 <span class="text-blue-400 mr-3">•</span>
                 <div>
-                  <p><strong>Choose installation location</strong> (default: <code class="bg-slate-900 text-xs px-2 py-1 rounded">C:\Users\{your-username}\AppData\Local\Programs\Claude Owl</code>)</p>
+                  <p><strong>Choose installation location</strong> (default: <code class="bg-slate-900 text-xs px-2 py-1 rounded">C:\Users\{your-username}\AppData\Local\Programs\Open Owl</code>)</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -411,16 +411,16 @@
         <div class="flex items-start mb-4">
           <span class="text-3xl bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center font-bold mr-4">3</span>
           <div class="flex-1">
-            <h2 class="text-2xl font-bold mb-2">Launch Claude Owl</h2>
+            <h2 class="text-2xl font-bold mb-2">Launch Open Owl</h2>
             <p class="text-slate-400 mb-4">
-              Open Claude Owl from the Start Menu or desktop shortcut
+              Open Open Owl from the Start Menu or desktop shortcut
             </p>
 
             <div class="space-y-3 text-slate-300">
               <div class="flex items-start">
                 <span class="text-blue-400 mr-3">•</span>
                 <div>
-                  <p><strong>Start Menu:</strong> Search for "Claude Owl" and click to open</p>
+                  <p><strong>Start Menu:</strong> Search for "Open Owl" and click to open</p>
                 </div>
               </div>
               <div class="flex items-start">
@@ -446,7 +446,7 @@
           <span class="mr-3">⚠️</span> Windows SmartScreen Warning
         </h2>
         <p class="text-slate-300 mb-4">
-          When you first run Claude Owl, Windows SmartScreen may show a warning:
+          When you first run Open Owl, Windows SmartScreen may show a warning:
         </p>
 
         <div class="bg-slate-900 p-4 rounded-lg mb-4 border border-slate-700">
@@ -471,7 +471,7 @@
             </li>
             <li class="flex items-start">
               <span class="text-green-400 font-bold mr-3">3.</span>
-              <p>Claude Owl will launch</p>
+              <p>Open Owl will launch</p>
             </li>
           </ol>
         </div>
@@ -479,7 +479,7 @@
         <div class="mt-4 p-3 bg-blue-900/30 border border-blue-700 rounded-lg">
           <p class="text-sm text-blue-300">
             <strong>📝 Why does this happen?</strong>
-            Claude Owl is currently distributed without code signing (which is a paid service). Windows SmartScreen is designed to warn about unsigned applications, especially if it's not widely distributed. Code signing will be added in a future version.
+            Open Owl is currently distributed without code signing (which is a paid service). Windows SmartScreen is designed to warn about unsigned applications, especially if it's not widely distributed. Code signing will be added in a future version.
           </p>
         </div>
       </div>
@@ -491,7 +491,7 @@
         </h2>
         <div class="space-y-3 text-slate-300">
           <p>
-            Once Claude Owl is running, you can:
+            Once Open Owl is running, you can:
           </p>
           <ul class="space-y-2 ml-6">
             <li class="flex items-start">
@@ -518,10 +518,10 @@
       <div class="mt-8 text-center">
         <p class="text-slate-400 mb-4">Need help or found a bug?</p>
         <div class="flex justify-center space-x-4">
-          <a href="https://github.com/antonbelev/claude-owl/issues" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-6 py-3 rounded-lg transition">
+          <a href="https://github.com/antonbelev/open-owl/issues" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 px-6 py-3 rounded-lg transition">
             Report an Issue
           </a>
-          <a href="https://github.com/antonbelev/claude-owl/discussions" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
+          <a href="https://github.com/antonbelev/open-owl/discussions" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition">
             Ask a Question
           </a>
         </div>
@@ -534,16 +534,16 @@
   <footer class="py-8 px-6 border-t border-slate-700">
     <div class="container mx-auto text-center text-slate-400 text-sm">
       <p class="mb-2">
-        Made with ❤️ by the Claude Owl community
+        Made with ❤️ by the Open Owl community
       </p>
       <p class="mb-4">
         Developed by Anton @ <a href="https://belev.me/" target="_blank" class="text-blue-400 hover:underline">belev.me</a>
       </p>
       <p>
-        <a href="https://github.com/antonbelev/claude-owl" class="hover:text-blue-400">GitHub</a> •
-        <a href="https://github.com/antonbelev/claude-owl/issues" class="hover:text-blue-400">Issues</a> •
+        <a href="https://github.com/antonbelev/open-owl" class="hover:text-blue-400">GitHub</a> •
+        <a href="https://github.com/antonbelev/open-owl/issues" class="hover:text-blue-400">Issues</a> •
         <a href="index.html" class="hover:text-blue-400">Home</a> •
-        <a href="https://github.com/antonbelev/claude-owl/blob/main/LICENSE" class="hover:text-blue-400">MIT License</a>
+        <a href="https://github.com/antonbelev/open-owl/blob/main/LICENSE" class="hover:text-blue-400">MIT License</a>
       </p>
     </div>
   </footer>

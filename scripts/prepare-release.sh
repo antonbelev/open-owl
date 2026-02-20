@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Claude Owl Release Preparation Script
+# Open Owl Release Preparation Script
 #
 # This script prepares a new release by:
 # 1. Running CI checks locally
@@ -34,7 +34,7 @@ if [[ ! "$RELEASE_TYPE" =~ ^(major|minor|patch)$ ]]; then
   exit 1
 fi
 
-echo -e "${BLUE}🚀 Claude Owl Release Preparation${NC}"
+echo -e "${BLUE}🚀 Open Owl Release Preparation${NC}"
 echo -e "${BLUE}================================${NC}\n"
 
 # Step 1: Check we're on develop branch

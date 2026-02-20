@@ -1,7 +1,7 @@
 /**
  * Project discovery and .claude.json type definitions
  *
- * IMPORTANT: .claude.json is CLI-managed and READ-ONLY for Claude Owl
+ * IMPORTANT: .claude.json is CLI-managed and READ-ONLY for Open Owl
  * We use it only for project discovery, not for writing
  */
 

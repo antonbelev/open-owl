@@ -275,7 +275,7 @@ export class RemoteMCPRegistryService {
   private cacheTimestamp: number | null = null;
 
   constructor() {
-    this.cacheDir = path.join(homedir(), '.claude-owl', 'cache');
+    this.cacheDir = path.join(homedir(), '.open-owl', 'cache');
     this.cacheFile = path.join(this.cacheDir, 'remote-mcp-servers.json');
   }
 
@@ -646,7 +646,7 @@ export class RemoteMCPRegistryService {
         timeout,
         headers: {
           Accept: 'application/json',
-          'User-Agent': 'Claude-Owl/1.0',
+          'User-Agent': 'Open-Owl/1.0',
         },
       };
 

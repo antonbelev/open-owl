@@ -582,7 +582,7 @@ export class PluginsService {
       const response = await fetch(apiUrl, {
         headers: {
           Accept: 'application/vnd.github.v3+json',
-          'User-Agent': 'Claude-Owl',
+          'User-Agent': 'Open-Owl',
         },
       });
 

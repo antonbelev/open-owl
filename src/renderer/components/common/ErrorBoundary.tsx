@@ -141,7 +141,7 @@ Timestamp: ${new Date().toISOString()}
                   <button
                     onClick={() =>
                       window.electronAPI.openExternal(
-                        'https://github.com/anthropics/claude-owl/issues'
+                        'https://github.com/antonbelev/open-owl/issues'
                       )
                     }
                     className="underline hover:text-blue-700"

@@ -1,6 +1,6 @@
 # Project Documentation
 
-This directory contains technical documentation for Claude Owl developers and contributors.
+This directory contains technical documentation for Open Owl developers and contributors.
 
 ## Directory Structure
 
@@ -52,7 +52,7 @@ The **public-facing website** (GitHub Pages) is in `/docs`:
 - Changelog: `docs/changelog.html`
 - Installation: `docs/installation.html`
 
-**Live site:** https://antonbelev.github.io/claude-owl/
+**Live site:** https://antonbelev.github.io/open-owl/
 
 ## Contributing
 

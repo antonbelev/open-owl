@@ -2,7 +2,7 @@
 
 **Status:** Accepted
 **Date:** 2025-12-05
-**Decision Makers:** Claude Owl Development Team
+**Decision Makers:** Open Owl Development Team
 
 ## Executive Summary
 
@@ -383,7 +383,7 @@ describe('Platform-aware template selection', () => {
 
 **Winner:** Node.js-first approach
 - Same scripts work everywhere
-- No additional dependencies (Node.js already required for Claude Owl)
+- No additional dependencies (Node.js already required for Open Owl)
 - Best user experience
 
 ---
@@ -447,7 +447,7 @@ This is a **fix, not a breaking change** - the old behavior was broken.
 ```
 
 **Action Required:**
-- Open Claude Owl
+- Open Open Owl
 - Go to Status Line settings
 - Select a "Cross-Platform" template
 - Apply template

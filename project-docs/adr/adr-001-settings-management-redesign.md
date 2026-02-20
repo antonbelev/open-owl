@@ -3,15 +3,15 @@
 **Status:** Accepted
 **Date:** 2025-11-15
 **Deciders:** Engineering Team
-**Context:** Configuration file management for Claude Owl desktop application
+**Context:** Configuration file management for Open Owl desktop application
 
 ---
 
 ## Context and Problem Statement
 
-Claude Owl needs to manage Claude Code configuration files across multiple scopes (user-level and project-level). The configuration landscape has evolved, and despite official documentation stating `.claude.json` is deprecated, it remains actively used by Claude Code CLI.
+Open Owl needs to manage Claude Code configuration files across multiple scopes (user-level and project-level). The configuration landscape has evolved, and despite official documentation stating `.claude.json` is deprecated, it remains actively used by Claude Code CLI.
 
-**Key Challenge:** Claude Owl is a **standalone desktop application** (not project-aware) but needs to enable users to manage both user-level and project-specific settings safely.
+**Key Challenge:** Open Owl is a **standalone desktop application** (not project-aware) but needs to enable users to manage both user-level and project-specific settings safely.
 
 ---
 
@@ -32,7 +32,7 @@ Based on [GitHub Issue #10839](https://github.com/anthropics/claude-code/issues/
 ```
 ~/.claude.json                    # ⚠️ CLI-managed, project tracking
 ~/.claude/
-  ├── settings.json              # ✅ User-level settings (Claude Owl can edit)
+  ├── settings.json              # ✅ User-level settings (Open Owl can edit)
   ├── skills/                    # ✅ User-level skills
   ├── projects/                  # CLI-managed session data
   │   └── -home-user-myproject/
@@ -40,7 +40,7 @@ Based on [GitHub Issue #10839](https://github.com/anthropics/claude-code/issues/
   └── session-env/              # CLI-managed
 
 {PROJECT_ROOT}/.claude/
-  ├── settings.json              # ✅ Project-level settings (Claude Owl can edit)
+  ├── settings.json              # ✅ Project-level settings (Open Owl can edit)
   ├── settings.local.json        # ✅ Local overrides (gitignored)
   ├── skills/                    # ✅ Project-level skills
   ├── hooks/                     # ✅ Hook scripts
@@ -90,7 +90,7 @@ Based on [GitHub Issue #10839](https://github.com/anthropics/claude-code/issues/
 }
 ```
 
-### Critical Fields for Claude Owl
+### Critical Fields for Open Owl
 
 - `projects` - **Key-value map** of project paths to project configuration
   - Key: Absolute file system path (e.g., `/home/user/my-project`)
@@ -106,22 +106,22 @@ Based on [GitHub Issue #10839](https://github.com/anthropics/claude-code/issues/
 
 ### 1. File Access Policy
 
-| File | Managed By | Claude Owl Access | Purpose |
+| File | Managed By | Open Owl Access | Purpose |
 |------|-----------|-------------------|---------|
 | `~/.claude.json` | **Claude CLI** | **Read Only** | Project discovery, MCP server display |
-| `~/.claude/settings.json` | **User/Claude Owl** | **Read/Write** | User-level settings across all projects |
-| `{PROJECT}/.claude/settings.json` | **User/Claude Owl** | **Read/Write*** | Project-specific settings |
-| `{PROJECT}/.claude/settings.local.json` | **User/Claude Owl** | **Read/Write*** | Local overrides (gitignored) |
+| `~/.claude/settings.json` | **User/Open Owl** | **Read/Write** | User-level settings across all projects |
+| `{PROJECT}/.claude/settings.json` | **User/Open Owl** | **Read/Write*** | Project-specific settings |
+| `{PROJECT}/.claude/settings.local.json` | **User/Open Owl** | **Read/Write*** | Local overrides (gitignored) |
 | `{PROJECT}/.mcp.json` | **Claude CLI** | **Read Only** | Project MCP servers (alternative storage) |
 
-**\*After project selection** - Claude Owl only accesses project files after user explicitly selects a project.
+**\*After project selection** - Open Owl only accesses project files after user explicitly selects a project.
 
 ### 2. User Workflow
 
 #### Phase 1: User-Level Settings (Current State) ✅
 
 ```
-Claude Owl → Read/Write → ~/.claude/settings.json
+Open Owl → Read/Write → ~/.claude/settings.json
 ```
 
 **Capabilities:**
@@ -134,7 +134,7 @@ Claude Owl → Read/Write → ~/.claude/settings.json
 #### Phase 2: Project Selection (Future) 🔄
 
 ```
-Step 1: Claude Owl → Read → ~/.claude.json
+Step 1: Open Owl → Read → ~/.claude.json
         Extract: projects = { "/path/a": {...}, "/path/b": {...} }
 
 Step 2: Display project list to user
@@ -142,9 +142,9 @@ Step 2: Display project list to user
         [📁 /home/user/another-project]
         [📁 /workspace/client-work]
 
-Step 3: User selects project → Claude Owl knows project path
+Step 3: User selects project → Open Owl knows project path
 
-Step 4: Claude Owl → Read/Write → {PROJECT}/.claude/settings.json
+Step 4: Open Owl → Read/Write → {PROJECT}/.claude/settings.json
 ```
 
 **Capabilities:**
@@ -161,7 +161,7 @@ Step 4: Claude Owl → Read/Write → {PROJECT}/.claude/settings.json
 ### Why NOT Write to ~/.claude.json?
 
 1. **CLI Ownership**: Claude CLI actively manages this file (auto-creates, auto-updates)
-2. **File Locking**: Risk of conflicts if both CLI and Claude Owl write simultaneously
+2. **File Locking**: Risk of conflicts if both CLI and Open Owl write simultaneously
 3. **Unknown Fields**: Contains CLI-managed fields (`cachedStatsigGates`, `userID`, etc.) we don't understand
 4. **Schema Evolution**: CLI may change structure without notice
 5. **Corruption Risk**: One bad write could break Claude Code initialization
@@ -171,11 +171,11 @@ Step 4: Claude Owl → Read/Write → {PROJECT}/.claude/settings.json
 1. **Single Source of Truth**: CLI maintains accurate list of all initialized projects
 2. **Reliable**: File always exists once Claude Code is initialized
 3. **No Guessing**: We don't need to scan filesystem or ask user for project paths
-4. **Consistent**: Projects added via CLI automatically appear in Claude Owl
+4. **Consistent**: Projects added via CLI automatically appear in Open Owl
 
 ### Why Two-Phase Approach (User → Project)?
 
-1. **Design Constraint Compliance**: Claude Owl is a standalone app, not project-aware
+1. **Design Constraint Compliance**: Open Owl is a standalone app, not project-aware
 2. **User Control**: Explicit project selection prevents accidental edits to wrong project
 3. **Safety**: Can't corrupt project settings if we don't know which project
 4. **Clarity**: UI clearly shows "User Settings" vs "Project: /path/to/project"
@@ -414,7 +414,7 @@ describe('SettingsService', () => {
 - Read `.claude.json` → Display projects → Select project → Read project settings
 - Edit user settings → Save → Verify `.claude/settings.json` updated
 - Edit project settings → Save → Verify `{PROJECT}/.claude/settings.json` updated
-- Ensure `.claude.json` never modified by Claude Owl
+- Ensure `.claude.json` never modified by Open Owl
 
 ---
 
@@ -458,9 +458,9 @@ describe('SettingsService', () => {
 ### Alternative 2: Auto-detect current project via process.cwd() ❌
 
 **Rejected because:**
-- Violates design constraint (Claude Owl is standalone app)
+- Violates design constraint (Open Owl is standalone app)
 - Only works during `npm run dev:electron` (misleading)
-- Users launch Claude Owl from Applications folder
+- Users launch Open Owl from Applications folder
 - No concept of "current working directory" for installed app
 
 ### Alternative 3: Ask user to manually enter project path ❌
@@ -478,7 +478,7 @@ describe('SettingsService', () => {
 - [GitHub Issue #10839](https://github.com/anthropics/claude-code/issues/10839) - Evidence of `.claude.json` active usage
 - File system inspection on development machine (see Context section)
 - Claude Code CLI behavior analysis
-- `CLAUDE.md` - Design Constraint: Claude Owl is standalone app
+- `CLAUDE.md` - Design Constraint: Open Owl is standalone app
 
 ---
 

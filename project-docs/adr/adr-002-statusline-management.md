@@ -11,7 +11,7 @@
 
 Claude Code supports customizable status lines—a terminal footer similar to shell prompts (PS1) that displays contextual session information. While power users have created sophisticated implementations (ccstatusline, claude-code-statusline), there's no accessible way for average users to configure status lines without writing shell scripts.
 
-**Key Challenge:** How can Claude Owl democratize status line customization while maintaining security, providing templates for common use cases, and enabling power users to extend functionality?
+**Key Challenge:** How can Open Owl democratize status line customization while maintaining security, providing templates for common use cases, and enabling power users to extend functionality?
 
 ---
 
@@ -243,7 +243,7 @@ curl -sSL https://raw.githubusercontent.com/.../install.sh | bash
 | Model Name | `session.model.display_name` | `Sonnet 4.5` |
 | Model Emoji | Mapped from model ID | `🧠` |
 | Current Directory | `session.workspace.current_dir` | `~/project` |
-| Project Name | Basename of project_dir | `claude-owl` |
+| Project Name | Basename of project_dir | `open-owl` |
 | Git Branch | `git branch --show-current` | `main` |
 | Git Status | `git status --porcelain` | `+3 ~2 -1` |
 | Session Cost | `session.cost.total_cost_usd` | `$0.45` |
@@ -812,7 +812,7 @@ interface CommunityTemplate extends StatusLineTemplate {
 ### Workflow 1: Beginner Setup (30 seconds)
 
 ```
-1. User opens Claude Owl → Settings → Status Line
+1. User opens Open Owl → Settings → Status Line
 2. Clicks "Templates" tab
 3. Clicks "Minimal" template
 4. Sees live preview: "Sonnet 4.5 • ~/my-project"
@@ -823,7 +823,7 @@ interface CommunityTemplate extends StatusLineTemplate {
 ### Workflow 2: Power User Customization (5 minutes)
 
 ```
-1. User opens Claude Owl → Settings → Status Line
+1. User opens Open Owl → Settings → Status Line
 2. Clicks "Widget Composer" tab
 3. Adds widgets:
    - Model Name (color: orange)
@@ -840,7 +840,7 @@ interface CommunityTemplate extends StatusLineTemplate {
 ### Workflow 3: Advanced Scripting (15 minutes)
 
 ```
-1. User opens Claude Owl → Settings → Status Line
+1. User opens Open Owl → Settings → Status Line
 2. Clicks "Advanced" tab
 3. Selects "Python" from language dropdown
 4. Writes custom script with Monaco Editor
@@ -913,7 +913,7 @@ Status line scripts respect permission rules:
 
 ### 2. Project Context
 
-When user selects a project in Claude Owl:
+When user selects a project in Open Owl:
 - Status line preview uses actual project path
 - Git branch detection works with selected project
 - Cost data can be project-specific
@@ -933,7 +933,7 @@ Status lines are a type of hook (`Status` event):
 }
 ```
 
-Claude Owl's Status Line UI is a specialized editor for this hook type.
+Open Owl's Status Line UI is a specialized editor for this hook type.
 
 ---
 
@@ -1046,7 +1046,7 @@ describe('StatusLine E2E', () => {
 ✅ **Accessibility** - Non-technical users can customize status lines without coding
 ✅ **Safety** - Built-in templates are audited and secure
 ✅ **Flexibility** - Power users can still write custom scripts
-✅ **Integration** - Fits naturally into Claude Owl's settings management
+✅ **Integration** - Fits naturally into Open Owl's settings management
 ✅ **Education** - Users learn about status lines through templates
 ✅ **Performance** - Templates follow optimization best practices
 ✅ **Security** - Sandbox mode and script scanning prevent data leaks
@@ -1076,14 +1076,14 @@ describe('StatusLine E2E', () => {
 - Requires Node.js runtime in user environment
 - Harder to audit security
 - License compatibility concerns
-- Want first-class integration with Claude Owl UI
+- Want first-class integration with Open Owl UI
 
 ### Alternative 2: No UI, Only Documentation ❌
 
 **Rejected because:**
 - Misses opportunity to democratize feature
 - Forces users to read docs and write scripts
-- Doesn't align with Claude Owl's mission (visual configuration)
+- Doesn't align with Open Owl's mission (visual configuration)
 - No security scanning or validation
 
 ### Alternative 3: Web-Based Visual Editor Only ❌
@@ -1163,7 +1163,7 @@ describe('StatusLine E2E', () => {
 ## Success Metrics
 
 ### User Adoption
-- **Target:** 60% of Claude Owl users enable status lines within first week
+- **Target:** 60% of Open Owl users enable status lines within first week
 - **Measure:** Telemetry on status line configuration saves
 
 ### User Satisfaction

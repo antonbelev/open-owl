@@ -1,6 +1,6 @@
-# Claude Owl - Feature Screenshots
+# Open Owl - Feature Screenshots
 
-This page showcases the main features of Claude Owl with visual walkthroughs. All features are available on macOS in beta.
+This page showcases the main features of Open Owl with visual walkthroughs. All features are available on macOS in beta.
 
 ---
 
@@ -8,7 +8,7 @@ This page showcases the main features of Claude Owl with visual walkthroughs. Al
 
 ### Claude Code Installation Status & API Monitoring
 
-![Claude Owl Dashboard](screenshots/claude-owl-dashboard.png)
+![Open Owl Dashboard](screenshots/open-owl-dashboard.png)
 
 The dashboard provides an at-a-glance view of your Claude Code setup:
 - **Claude CLI Detection** - Real-time detection of installed version and path

@@ -1,4 +1,4 @@
-# Claude Owl - Architecture Documentation (v0.1.5)
+# Open Owl - Architecture Documentation (v0.1.5)
 
 > **Last Updated:** November 2025
 > **Current Version:** 0.1.5 (Beta)
@@ -29,7 +29,7 @@
 
 ## 1. Executive Summary
 
-Claude Owl is an **open-source desktop application** that provides a visual, interactive UI for managing Claude Code configurations. Instead of manually editing JSON/YAML files or using the CLI, users can now configure settings, permissions, skills, agents, commands, MCP servers, and monitor Claude Code operations through an intuitive interface.
+Open Owl is an **open-source desktop application** that provides a visual, interactive UI for managing Claude Code configurations. Instead of manually editing JSON/YAML files or using the CLI, users can now configure settings, permissions, skills, agents, commands, MCP servers, and monitor Claude Code operations through an intuitive interface.
 
 **Current Status:** Phase 1 **COMPLETE** with production-ready features:
 - ✅ Full settings management (user/project/managed levels)
@@ -162,7 +162,7 @@ graph TB
 
 ## 4. Three-Process Architecture
 
-Claude Owl follows Electron's multi-process model:
+Open Owl follows Electron's multi-process model:
 
 ### Main Process (Node.js)
 
@@ -670,15 +670,15 @@ React Component
 
 ### ADR-005: Project Selection Pattern
 
-Claude Owl is a **standalone desktop application** without project context awareness:
+Open Owl is a **standalone desktop application** without project context awareness:
 
-**What Claude Owl Doesn't Do:**
+**What Open Owl Doesn't Do:**
 - ❌ Use `process.cwd()`
 - ❌ Detect project structure automatically
 - ❌ Assume current working directory
 - ❌ Auto-detect frameworks
 
-**What Claude Owl Does:**
+**What Open Owl Does:**
 - ✅ Read ~/.claude.json for project discovery
 - ✅ Display project selector
 - ✅ Let user explicitly select a project
@@ -761,7 +761,7 @@ if (scope === 'project' && selectedProject) {
 ## 12. File Organization
 
 ```
-claude-owl/
+open-owl/
 ├── src/
 │   ├── main/
 │   │   ├── index.ts                    # Electron app entry
@@ -1042,7 +1042,7 @@ async getSettingsHierarchy(): Promise<Settings> {
 
 ### Standalone Application Design
 
-Claude Owl is **not a project-aware tool**:
+Open Owl is **not a project-aware tool**:
 
 **❌ Does NOT:**
 - Run from within projects
@@ -1195,7 +1195,7 @@ ipc:github:scan-security   // Scan code security
 
 ## Conclusion
 
-Claude Owl is a mature, feature-rich desktop application with:
+Open Owl is a mature, feature-rich desktop application with:
 
 - **21 production services** handling all major features
 - **14 IPC handler modules** enabling secure main-renderer communication
@@ -1212,5 +1212,5 @@ The codebase is **well-organized, type-safe, and production-ready** with a clear
 
 **Document Version:** v0.1.5
 **Last Updated:** November 2025
-**Author:** Claude Owl Development Team
+**Author:** Open Owl Development Team
 **Status:** Phase 1 Complete - Ready for Production

@@ -85,7 +85,7 @@ export const VersionUpdateCard: React.FC = () => {
         <CardContent className="space-y-3">
           <Alert variant="warning">
             <Download className="h-4 w-4" />
-            <AlertDescription>A new version of Claude Owl is available!</AlertDescription>
+            <AlertDescription>A new version of OpenOwl is available!</AlertDescription>
           </Alert>
 
           <div className="space-y-2">
@@ -169,9 +169,7 @@ export const VersionUpdateCard: React.FC = () => {
           <span className="text-sm font-medium text-neutral-700 min-w-[90px]">Version:</span>
           <span className="text-sm text-neutral-900 font-mono">v{versionInfo.currentVersion}</span>
         </div>
-        <p className="text-sm text-neutral-600">
-          You are running the latest version of Claude Owl.
-        </p>
+        <p className="text-sm text-neutral-600">You are running the latest version of OpenOwl.</p>
       </CardContent>
       <CardFooter>
         <Button onClick={refetch} variant="outline" size="sm" data-testid="refresh-button">

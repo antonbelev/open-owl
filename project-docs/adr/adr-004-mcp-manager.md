@@ -3,15 +3,15 @@
 **Status:** Proposed
 **Date:** 2025-01-13
 **Decision Makers:** Product Team, Engineering Team
-**Stakeholders:** Claude Owl Users, Claude Code Users
+**Stakeholders:** Open Owl Users, Claude Code Users
 
 ---
 
 ## ⚠️ CRITICAL DESIGN CONSTRAINT
 
-**Claude Owl is a STANDALONE desktop application, NOT project-aware.**
+**Open Owl is a STANDALONE desktop application, NOT project-aware.**
 
-Users launch Claude Owl from the Applications folder with no project context. Therefore:
+Users launch Open Owl from the Applications folder with no project context. Therefore:
 - ✗ **NOT supported:** Project-level MCP server configs (.mcp.json)
 - ✗ **NOT supported:** Scope selection (user/project/local)
 - ✓ **SUPPORTED ONLY:** User-level global MCP servers (~/.claude/mcp-servers.json)
@@ -1351,7 +1351,7 @@ claude mcp reset-project-choices        # Reset project scope choices
 **Implementation Strategy:**
 ```typescript
 // Instead of managing keychain ourselves:
-await keychain.setPassword('claude-owl', 'BRAVE_API_KEY', apiKeyValue);
+await keychain.setPassword('open-owl', 'BRAVE_API_KEY', apiKeyValue);
 
 // We pass env vars as CLI flags (Claude Code handles storage):
 await execAsync(`claude mcp add brave-search --env BRAVE_API_KEY=${apiKeyValue} ...`);
@@ -1493,7 +1493,7 @@ async installFromMarketplace(serverId: string): Promise<void> {
 ### Quantitative Metrics
 
 **Adoption Rate:**
-- % of Claude Owl users who install at least one MCP server
+- % of Open Owl users who install at least one MCP server
 - Target: 60% within first month
 - Average servers installed per user
 - Target: 3-5 servers
@@ -1650,7 +1650,7 @@ We will consider the MCP Servers Manager feature successful if:
 
 4. **How do we handle MCP server updates?**
    - Option A: User responsibility (reinstall)
-   - Option B: Claude Owl checks for updates
+   - Option B: Open Owl checks for updates
    - **Proposal:** Phase 1 = manual, Phase 2 = auto-check
 
 5. **Should we support custom marketplaces? (like plugins)**
@@ -1756,7 +1756,7 @@ The 'npx' command is not available on your system.
 How to fix:
 1. Install Node.js from https://nodejs.org/
 2. Verify installation: run 'npx --version' in terminal
-3. Restart Claude Owl
+3. Restart Open Owl
 4. Test the connection again
 
 [Download Node.js →]  [View Troubleshooting Guide]
@@ -1793,7 +1793,7 @@ Path: /System/Library
 
 Access to this path is not allowed.
 
-For security, Claude Owl prevents access to:
+For security, Open Owl prevents access to:
 • System directories (/System, /Library, /etc)
 • Root directory (/)
 • Other users' home directories
@@ -1964,7 +1964,7 @@ describe('MCP Integration', () => {
 
 ## Conclusion
 
-The MCP Servers Manager will transform Claude Owl from a configuration viewer into a powerful management tool. By **delegating to `claude mcp` CLI** instead of reimplementing MCP protocol, we:
+The MCP Servers Manager will transform Open Owl from a configuration viewer into a powerful management tool. By **delegating to `claude mcp` CLI** instead of reimplementing MCP protocol, we:
 
 1. **Deliver faster** (5 weeks vs 6 weeks)
 2. **Write less code** (2K LOC vs 8K LOC)
@@ -1984,7 +1984,7 @@ The MCP Servers Manager will transform Claude Owl from a configuration viewer in
 - 60% adoption rate within first month
 - Significant reduction in support requests
 
-This implementation aligns with Claude Owl's mission: **Make Claude Code accessible to users who prefer visual tools, while maintaining power user capabilities.**
+This implementation aligns with Open Owl's mission: **Make Claude Code accessible to users who prefer visual tools, while maintaining power user capabilities.**
 
 ---
 

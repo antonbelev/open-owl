@@ -1,4 +1,4 @@
-# Claude Owl 🦉
+# Open Owl 🦉
 
 **Stop editing JSON and MD files. Manage your Claude Code setup visually.**
 
@@ -19,9 +19,9 @@ Claude Code is powerful but configuration is painful:
 
 ## The Solution
 
-Claude Owl gives you a visual interface for everything Claude Code configuration:
+Open Owl gives you a visual interface for everything Claude Code configuration:
 
-![Claude Owl Dashboard](screenshots/claude-owl-dashboard.png)
+![Open Owl Dashboard](screenshots/open-owl-dashboard.png)
 
 **No more terminal commands. No more JSON typos. Just point, click, done.**
 
@@ -41,24 +41,24 @@ Claude Owl gives you a visual interface for everything Claude Code configuration
 - **Dashboard** - Real-time Claude Code detection and API status monitoring
 - **Debug Logs** - View and search Claude Code logs without terminal or importing the whole `.claude` directory into an IDE.
 
-[See all features with screenshots →](https://antonbelev.github.io/claude-owl/screenshots.html)
+[See all features with screenshots →](https://antonbelev.github.io/open-owl/screenshots.html)
 
 ## Installation
 
 ### Download (Recommended)
 
-**[📥 Download Latest Release](https://github.com/antonbelev/claude-owl/releases/latest)**
+**[📥 Download Latest Release](https://github.com/antonbelev/open-owl/releases/latest)**
 
 - macOS (Intel + Apple Silicon)
 - Windows (x64 + ARM64)
 
-[Full installation guide →](https://antonbelev.github.io/claude-owl/installation.html)
+[Full installation guide →](https://antonbelev.github.io/open-owl/installation.html)
 
 ### Build from Source
 
 ```bash
-git clone https://github.com/antonbelev/claude-owl.git
-cd claude-owl
+git clone https://github.com/antonbelev/open-owl.git
+cd open-owl
 npm install
 npm run dev:electron
 ```
@@ -68,7 +68,7 @@ npm run dev:electron
 ## FAQ
 
 **Does this replace Claude Code?**
-No. Claude Owl is a UI layer on top of Claude Code CLI. You still need Claude Code installed.
+No. Open Owl is a UI layer on top of Claude Code CLI. You still need Claude Code installed.
 
 **Is my data safe?**
 100% local. No telemetry, no external servers, no data collection. Everything stays on your machine.
@@ -82,8 +82,8 @@ PRs welcome! Check [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 Quick start:
 ```bash
-git clone https://github.com/antonbelev/claude-owl.git
-cd claude-owl
+git clone https://github.com/antonbelev/open-owl.git
+cd open-owl
 npm install
 npm run dev:electron
 ```
@@ -96,14 +96,14 @@ See [CLAUDE.md](CLAUDE.md) for development notes and [docs/architecture.md](docs
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=antonbelev/claude-owl&type=Date)](https://star-history.com/#antonbelev/claude-owl&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=antonbelev/open-owl&type=Date)](https://star-history.com/#antonbelev/open-owl&Date)
 
 ## License
 
-Claude Owl is open-source software licensed under the [MIT License](LICENSE).
+Open Owl is open-source software licensed under the [MIT License](LICENSE).
 
 ---
 
-**Disclaimer:** Claude Owl is not affiliated with Anthropic. Claude is a trademark of Anthropic PCB.
+**Disclaimer:** Open Owl is not affiliated with Anthropic. Claude is a trademark of Anthropic PCB.
 
-**Support:** [Issues](https://github.com/antonbelev/claude-owl/issues) • [Discussions](https://github.com/antonbelev/claude-owl/discussions) • [Documentation](https://antonbelev.github.io/claude-owl/)
+**Support:** [Issues](https://github.com/antonbelev/open-owl/issues) • [Discussions](https://github.com/antonbelev/open-owl/discussions) • [Documentation](https://antonbelev.github.io/open-owl/)

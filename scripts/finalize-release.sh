@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################################################
-# Claude Owl Release Finalization Script
+# Open Owl Release Finalization Script
 #
 # This script finalizes a release by:
 # 1. Merging release branch to main
@@ -25,7 +25,7 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${BLUE}🚀 Claude Owl Release Finalization${NC}"
+echo -e "${BLUE}🚀 Open Owl Release Finalization${NC}"
 echo -e "${BLUE}===================================${NC}\n"
 
 # Step 1: Check we're on a release branch
@@ -146,7 +146,7 @@ echo -e "  • macOS (.dmg for Intel + Apple Silicon)"
 echo -e "  • Windows (.exe installer)"
 echo -e "  • Linux (.AppImage)\n"
 
-GITHUB_REPO="antonbelev/claude-owl"
+GITHUB_REPO="antonbelev/open-owl"
 echo -e "${BLUE}View build progress:${NC}"
 echo -e "  https://github.com/${GITHUB_REPO}/actions\n"
 
