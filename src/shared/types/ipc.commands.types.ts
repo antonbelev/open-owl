@@ -197,21 +197,19 @@ export interface DiscoverGitHubCommandsRequest {
   repoUrl: string;
 }
 
-export interface DiscoverGitHubCommandsResponse
-  extends IPCResponse<{
-    commands: Array<{
-      name: string;
-      path: string;
-      url: string;
-    }>;
-  }> {}
+export interface DiscoverGitHubCommandsResponse extends IPCResponse<{
+  commands: Array<{
+    name: string;
+    path: string;
+    url: string;
+  }>;
+}> {}
 
 export interface FetchGitHubFileRequest {
   url: string;
 }
 
-export interface FetchGitHubFileResponse
-  extends IPCResponse<{
-    content: string;
-    command: Command;
-  }> {}
+export interface FetchGitHubFileResponse extends IPCResponse<{
+  content: string;
+  command: Command;
+}> {}
