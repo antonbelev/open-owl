@@ -1,3 +1,5 @@
+
+
 # Open Owl 🦉
 
 **Stop editing JSON and MD files. Manage your Claude Code setup visually.**
@@ -63,7 +65,7 @@ npm install
 npm run dev:electron
 ```
 
-**Requirements:** Node.js 18+, Claude Code CLI installed
+**Requirements:** Node.js 18+, npm 9+, Claude Code CLI installed
 
 ## FAQ
 
